@@ -4,6 +4,7 @@ import { useState } from "react";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import MobileStickyBar from "@/components/layout/MobileStickyBar";
+import WhatsAppFloatingButton from "@/components/layout/WhatsAppFloatingButton";
 import HeroSection from "@/components/sections/HeroSection";
 import BrandCarouselStrip from "@/components/sections/BrandCarouselStrip";
 import FeaturedFleetSection from "@/components/sections/FeaturedFleetSection";
@@ -87,6 +88,9 @@ export default function Home() {
 
       {/* Touch-Optimized Mobile Sticky Action Bar */}
       <MobileStickyBar onOpenBooking={handleOpenBooking} />
+
+      {/* Desktop Pulsating Floating WhatsApp Concierge Bar */}
+      <WhatsAppFloatingButton />
 
       {/* Modals & Drawers */}
       <QuickBookingModal
