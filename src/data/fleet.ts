@@ -151,44 +151,5 @@ export const FLEET_DATA: Car[] = [
     ],
     description: "Iconic muscle design meets raw modern engineering. The 5.0L Coyote V8 produces an unmistakable deep rumble that demands attention across Bangalore roads.",
     suitableFor: ["Self Drive", "Photoshoots", "Weekend Drive", "Reels & Cinema"]
-  },
-  {
-    id: "ferrari-f8-tributo",
-    name: "Ferrari F8 Tributo",
-    brand: "Ferrari",
-    model: "F8 Tributo Twin-Turbo V8",
-    tagline: "Peak Maranello Aerodynamics. Uncompromised Speed.",
-    status: "vip-reserve",
-    statusLabel: "Special VIP Reserve Only",
-    pricePerDay: 95000,
-    engine: "3.9L Twin-Turbo V8",
-    horsepower: 710,
-    acceleration: "2.9s",
-    topSpeed: "340 km/h",
-    transmission: "7-Speed F1 Dual-Clutch",
-    drivetrain: "Rear-Wheel Drive (RWD)",
-    year: 2024,
-    color: "Rosso Corsa / Nero Roof",
-    brandColor: "#DC2626",
-    glowColor: "rgba(220, 38, 38, 0.35)",
-    image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1600&q=85",
-    mobileImage: "/images/mobile/ferrari-mobile.png",
-    cockpitImage: "/images/cockpit/ferrari-cockpit.png",
-    heroVideo: "/videos/ferrari-hero.mp4",
-    gallery: [
-      "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1600&q=85",
-      "/images/cockpit/ferrari-cockpit.png"
-    ],
-    audioUrl: "/audio/ferrari-rev.mp3",
-    audioFrequency: 220,
-    features: [
-      "Ferrari Dynamic Enhancer (FDE+)",
-      "Side Slip Angle Control 6.1 (SSC)",
-      "S-Duct Front Aerodynamic Nose",
-      "Scuderia Ferrari Carbon Shields",
-      "Titanium Exhaust System"
-    ],
-    description: "The ultimate homage to Ferrari's V8 legacy. Delivering 710 horsepower of pure adrenaline, the F8 Tributo is available for elite corporate launches, wedding grand entries, and private media shoots.",
-    suitableFor: ["Wedding Entry", "Private VIP Chauffeur", "Film Production"]
   }
 ];

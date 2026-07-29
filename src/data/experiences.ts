@@ -59,22 +59,7 @@ export const EXPERIENCES_DATA: Experience[] = [
     iconName: "Zap",
     idealFor: "Weekend Escapes & Automotive Purists"
   },
-  {
-    id: "ferrari-f8-vip",
-    title: "Ferrari F8 Tributo VIP Experience",
-    subtitle: "Peak Maranello twin-turbo V8 engineering (710 HP).",
-    badge: "VIP Reserve",
-    description: "The crown jewel of Maranello. Experience explosive 0-100 acceleration in 2.9 seconds with white-glove VIP concierge support.",
-    highlights: [
-      "710 HP Twin-Turbo V8 Engine",
-      "S-Duct Aerodynamics & Rosso Corsa Finish",
-      "Chauffeur or Valet Delivery Options",
-      "Red-carpet event onboarding"
-    ],
-    image: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=1200&q=85",
-    iconName: "Sparkles",
-    idealFor: "Wedding Grand Entries & Luxury Product Launches"
-  },
+
   {
     id: "nandi-hills-roadtrip",
     title: "Nandi Hills Supercar Road Trip",

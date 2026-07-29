@@ -370,59 +370,6 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
           </motion.div>
         </div>
       </div>
-
-      {/* Floating Quick Availability Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mt-10">
-        <div className="glass-panel p-4 rounded-2xl border border-white/15 shadow-2xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center backdrop-blur-xl bg-black/60">
-          <div className="space-y-1">
-            <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-300 flex items-center gap-1">
-              <Zap className="w-3 h-3 text-[#FF2D20]" /> Select Supercar
-            </label>
-            <select
-              value={activeCarId}
-              onChange={(e) => setActiveCarId(e.target.value)}
-              className="w-full bg-neutral-900 border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white font-heading font-semibold focus:outline-none focus:border-[#FF2D20]"
-            >
-              {FLEET_DATA.map((car) => (
-                <option key={car.id} value={car.id}>
-                  {car.name} ({car.status === 'available' ? 'Available Now' : 'Pre-Book'})
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="space-y-1">
-            <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 flex items-center gap-1">
-              <Calendar className="w-3 h-3 text-[#FF2D20]" /> Preferred Date
-            </label>
-            <input
-              type="date"
-              value={heroDate}
-              onChange={(e) => setHeroDate(e.target.value)}
-              className="w-full bg-neutral-900 border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-[#FFFFFF] font-heading focus:outline-none focus:border-[#FF2D20]"
-            />
-          </div>
-
-          <div className="space-y-1">
-            <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 flex items-center gap-1">
-              <MapPin className="w-3 h-3 text-[#FF2D20]" /> Delivery Zone
-            </label>
-            <div className="bg-neutral-900 border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white font-heading font-medium flex items-center justify-between">
-              <span>UB City / Doorstep BLR</span>
-              <span className="text-[9px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-bold">Free</span>
-            </div>
-          </div>
-
-          <button
-            onClick={() => onOpenBooking(activeCarId)}
-            className="w-full h-full py-3.5 rounded-xl bg-[#FF2D20] hover:bg-[#e02619] text-[#000000] font-heading font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-lg shadow-[#FF2D20]/25"
-          >
-            <MessageSquare className="w-4 h-4 fill-black" />
-            <span>Check Availability</span>
-            <ChevronRight className="w-4 h-4" />
-          </button>
-        </div>
-      </div>
     </section>
   );
 }

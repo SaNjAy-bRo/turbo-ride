@@ -12,7 +12,6 @@ interface Brand {
 
 const BRANDS: Brand[] = [
   { name: "Porsche", logo: "/images/logos/porsche.svg" },
-  { name: "Ferrari", logo: "/images/logos/ferrari.svg" },
   { name: "Lamborghini", logo: "/images/logos/lamborghini.svg" },
   { name: "BMW", logo: "/images/logos/bmw.svg" },
   { name: "Mercedes-Benz", logo: "/images/logos/mercedes.svg" },
