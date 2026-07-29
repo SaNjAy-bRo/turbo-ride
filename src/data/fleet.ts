@@ -49,12 +49,12 @@ export const FLEET_DATA: Car[] = [
     color: "Racing Yellow / Jet Black Accents",
     brandColor: "#FFD000",
     glowColor: "rgba(255, 208, 0, 0.35)",
-    image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1600&q=85",
-    mobileImage: "/images/mobile/porsche-mobile.png",
+    image: "/images/porsche-yellow.png",
+    mobileImage: "/images/porsche-yellow.png",
     cockpitImage: "/images/cockpit/porsche-cockpit.png",
     heroVideo: "/videos/porsche-hero.mp4",
     gallery: [
-      "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1600&q=85",
+      "/images/porsche-yellow.png",
       "/images/cockpit/porsche-cockpit.png",
       "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1600&q=85",
       "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1600&q=85"
