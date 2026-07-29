@@ -1,6 +1,6 @@
 "use client";
 
-import { Key, Flame, Compass, Camera, Sparkles, Briefcase, Sun, ChevronRight, Check } from "lucide-react";
+import { Key, Flame, Compass, Camera, Sparkles, Briefcase, Sun, ChevronRight, Check, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { EXPERIENCES_DATA } from "@/data/experiences";
@@ -13,7 +13,8 @@ export default function ExperienceCategoriesSection({ onOpenBooking }: Experienc
   const iconMap: Record<string, React.ReactNode> = {
     Key: <Key className="w-5 h-5 text-[#FF2D20]" />,
     Flame: <Flame className="w-5 h-5 text-amber-600" />,
-    Compass: <Compass className="w-5 h-5 text-[#FF2D20]" />,
+    Zap: <Zap className="w-5 h-5 text-[#FF2D20]" />,
+    Compass: <Compass className="w-5 h-5 text-amber-600" />,
     Camera: <Camera className="w-5 h-5 text-amber-600" />,
     Sparkles: <Sparkles className="w-5 h-5 text-[#FF2D20]" />,
     Briefcase: <Briefcase className="w-5 h-5 text-amber-600" />,
