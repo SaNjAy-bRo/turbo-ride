@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Shield, ChevronRight, Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 
 interface NavigationProps {
@@ -47,28 +48,16 @@ export default function Navigation({ onOpenBooking }: NavigationProps) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Brand Logo */}
-            <a href="#" className="group flex items-center gap-3">
-              <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#FF2D20] to-black p-[1px]">
-                <div className="w-full h-full bg-[#050505] rounded-[11px] flex items-center justify-center group-hover:bg-[#FF2D20]/10 transition-colors duration-300">
-                  <span className="font-heading font-black text-xl text-[#FF2D20] group-hover:scale-110 transition-transform duration-300">
-                    T
-                  </span>
-                </div>
-              </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <span className="font-heading text-lg font-bold tracking-wider text-white">
-                    TURBO<span className="text-[#FF2D20]">RIDE</span>
-                  </span>
-                  <span className="text-[10px] font-semibold tracking-widest text-[#FFD000] bg-[#FFD000]/10 border border-[#FFD000]/30 px-1.5 py-0.5 rounded uppercase">
-                    BLR
-                  </span>
-                </div>
-                <span className="text-[9px] tracking-[0.25em] text-neutral-400 font-medium uppercase">
-                  Supercars • Bangalore
-                </span>
-              </div>
+            {/* Official Brand Logo */}
+            <a href="#" className="flex items-center">
+              <Image
+                src="/images/Logo-3-2048x308.png"
+                alt="TurboRide Supercars Bangalore"
+                width={204}
+                height={31}
+                priority
+                className="h-8 sm:h-9 w-auto object-contain hover:opacity-90 transition-opacity"
+              />
             </a>
 
             {/* Desktop Navigation Links */}

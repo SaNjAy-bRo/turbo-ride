@@ -11,7 +11,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
-  const [activeCarId, setActiveCarId] = useState("lamborghini-huracan-evo");
+  const [activeCarId, setActiveCarId] = useState("porsche-718-cayman");
   const [viewMode, setViewMode] = useState<'video' | 'exterior' | 'cockpit'>('video');
   const [heroDate, setHeroDate] = useState("");
   const [isRevving, setIsRevving] = useState(false);

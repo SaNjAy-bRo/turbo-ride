@@ -1,4 +1,5 @@
 import { Shield, MapPin, Instagram } from "lucide-react";
+import Image from "next/image";
 import { BANGALORE_LOCATIONS } from "@/data/locations";
 
 interface FooterProps {
@@ -16,18 +17,14 @@ export default function Footer({ onOpenBooking }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
           {/* Column 1: Brand Info */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#FF2D20] text-black font-heading font-black text-xl">
-                T
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading text-xl font-bold tracking-wider text-white">
-                  TURBO<span className="text-[#FF2D20]">RIDE</span>
-                </span>
-                <span className="text-[10px] tracking-[0.3em] text-neutral-400 font-medium uppercase">
-                  Supercars • Bangalore
-                </span>
-              </div>
+            <div className="flex items-center">
+              <Image
+                src="/images/Logo-3-2048x308.png"
+                alt="TurboRide Supercars Bangalore"
+                width={220}
+                height={33}
+                className="h-9 w-auto object-contain"
+              />
             </div>
 
             <p className="text-neutral-400 text-sm leading-relaxed max-w-md">
