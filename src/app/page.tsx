@@ -23,7 +23,7 @@ import { Car } from "@/data/fleet";
 
 export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [selectedBookingCarId, setSelectedBookingCarId] = useState("porsche-718-cayman");
+  const [selectedBookingCarId, setSelectedBookingCarId] = useState("lamborghini-huracan-evo");
   const [selectedDetailCar, setSelectedDetailCar] = useState<Car | null>(null);
 
   const handleOpenBooking = (carId?: string) => {
