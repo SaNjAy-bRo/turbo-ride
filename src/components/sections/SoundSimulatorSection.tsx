@@ -145,9 +145,9 @@ export default function SoundSimulatorSection() {
           </div>
 
           {/* Real Audio Equalizer Visualizer */}
-          <div className="p-6 rounded-2xl bg-neutral-950/90 border border-white/15 flex flex-col items-center justify-center space-y-4">
-            <div className="flex items-center gap-1.5 h-16">
-              {[...Array(32)].map((_, i) => (
+          <div className="p-4 sm:p-6 rounded-2xl bg-neutral-950/90 border border-white/15 flex flex-col items-center justify-center space-y-4 overflow-hidden w-full">
+            <div className="flex items-center justify-center gap-1 sm:gap-1.5 h-16 w-full overflow-hidden px-2">
+              {[...Array(24)].map((_, i) => (
                 <motion.div
                   key={i}
                   animate={{
@@ -158,7 +158,7 @@ export default function SoundSimulatorSection() {
                     duration: 0.15 + (i % 6) * 0.08,
                     ease: "easeInOut",
                   }}
-                  className="w-1.5 rounded-full"
+                  className={`w-1 sm:w-1.5 rounded-full shrink-0 ${i >= 16 ? "hidden sm:block" : ""}`}
                   style={{
                     backgroundColor: isPlaying ? activeCar.brandColor : "#555555",
                   }}
