@@ -4,7 +4,6 @@ import { useState } from "react";
 import { X, ChevronRight, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FLEET_DATA } from "@/data/fleet";
-import { EXPERIENCES_DATA } from "@/data/experiences";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
 
 interface QuickBookingModalProps {
@@ -19,10 +18,6 @@ export default function QuickBookingModal({
   selectedCarId = "porsche-718-cayman",
 }: QuickBookingModalProps) {
   const [carId, setCarId] = useState(selectedCarId);
-  const [experienceId, setExperienceId] = useState("self-drive");
-  const [date, setDate] = useState("");
-  const [duration, setDuration] = useState("1 Day");
-  const [location] = useState("UB City / Doorstep BLR");
   const [customerName, setCustomerName] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
 
@@ -30,14 +25,10 @@ export default function QuickBookingModal({
 
   const handleWhatsAppBooking = (e: React.FormEvent) => {
     e.preventDefault();
-    const activeExp = EXPERIENCES_DATA.find((e) => e.id === experienceId)?.title || experienceId;
     
     const message = `*NEW TURBORIDE SUPERCAR RESERVATION REQUEST*%0A%0A` +
       `*Vehicle:* ${activeCar.name}%0A` +
-      `*Experience:* ${activeExp}%0A` +
-      `*Requested Date:* ${date || 'Flexible / Asap'}%0A` +
-      `*Duration:* ${duration}%0A` +
-      `*Location/Zone:* ${location}%0A` +
+      `*Daily Rate:* ₹${activeCar.pricePerDay.toLocaleString('en-IN')}/day%0A` +
       `*Client Name:* ${customerName || 'Luxury Client'}%0A` +
       `*Phone:* ${customerPhone || 'N/A'}%0A%0A` +
       `_Sent from TurboRide Supercars Official Website_`;
@@ -66,10 +57,10 @@ export default function QuickBookingModal({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-2xl bg-[#101010] border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-red-950/20 z-10 my-8 overflow-hidden"
+            className="relative w-full max-w-xl bg-[#101010] border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl shadow-red-950/20 z-10 my-8 overflow-hidden"
           >
             {/* Ambient Background Light */}
-            <div className="ambient-red-glow -top-20 -right-20 opacity-30" />
+            <div className="ambient-red-glow -top-20 -right-20 opacity-30 pointer-events-none" />
 
             {/* Header */}
             <div className="flex items-center justify-between border-b border-white/10 pb-5 mb-6">
@@ -95,74 +86,25 @@ export default function QuickBookingModal({
                 <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
                   1. Select Supercar
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {FLEET_DATA.map((car) => (
                     <button
                       key={car.id}
                       type="button"
                       onClick={() => setCarId(car.id)}
-                      className={`p-3 rounded-xl border text-left transition-all relative overflow-hidden ${
+                      className={`p-3.5 rounded-xl border text-left transition-all relative overflow-hidden ${
                         carId === car.id
                           ? "bg-[#FF2D20]/15 border-[#FF2D20] text-white shadow-lg shadow-[#FF2D20]/20"
                           : "bg-neutral-900/60 border-white/10 text-neutral-400 hover:border-white/20"
                       }`}
                     >
                       <div className="font-heading text-sm font-bold truncate">{car.name}</div>
-                      <div className="text-[10px] text-neutral-400 mt-1">{car.engine}</div>
+                      <div className="text-[10px] text-neutral-400 mt-0.5">{car.engine}</div>
                       <div className="mt-2 text-xs font-bold text-[#FFD000]">
                         ₹{car.pricePerDay.toLocaleString('en-IN')}/day
                       </div>
                     </button>
                   ))}
-                </div>
-              </div>
-
-              {/* Experience Type */}
-              <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                  2. Select Experience Category
-                </label>
-                <select
-                  value={experienceId}
-                  onChange={(e) => setExperienceId(e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 text-white focus:outline-none focus:border-[#FF2D20] text-sm"
-                >
-                  {EXPERIENCES_DATA.map((exp) => (
-                    <option key={exp.id} value={exp.id}>
-                      {exp.title} - {exp.idealFor}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Date & Duration */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                    Preferred Date
-                  </label>
-                  <input
-                    type="date"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 text-white focus:outline-none focus:border-[#FF2D20] text-sm"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-2">
-                    Duration
-                  </label>
-                  <select
-                    value={duration}
-                    onChange={(e) => setDuration(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-white/10 text-white focus:outline-none focus:border-[#FF2D20] text-sm"
-                  >
-                    <option value="4 Hours (Photoshoot / Express)">4 Hours Express</option>
-                    <option value="1 Day (24 Hours)">1 Day (24 Hours)</option>
-                    <option value="Weekend Package (2 Days)">Weekend Package (2 Days)</option>
-                    <option value="Weekly Executive Rental">Weekly Executive</option>
-                  </select>
                 </div>
               </div>
 
