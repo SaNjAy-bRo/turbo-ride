@@ -1,65 +1,105 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import Navigation from "@/components/layout/Navigation";
+import Footer from "@/components/layout/Footer";
+import MobileStickyBar from "@/components/layout/MobileStickyBar";
+import HeroSection from "@/components/sections/HeroSection";
+import BrandCarouselStrip from "@/components/sections/BrandCarouselStrip";
+import FeaturedFleetSection from "@/components/sections/FeaturedFleetSection";
+import SoundSimulatorSection from "@/components/sections/SoundSimulatorSection";
+import ExperienceCategoriesSection from "@/components/sections/ExperienceCategoriesSection";
+import WhyChooseUsSection from "@/components/sections/WhyChooseUsSection";
+import LuxuryShowcaseSection from "@/components/sections/LuxuryShowcaseSection";
+import VideoShowcaseSection from "@/components/sections/VideoShowcaseSection";
+import CustomerReviewsSection from "@/components/sections/CustomerReviewsSection";
+import BookingProcessSection from "@/components/sections/BookingProcessSection";
+import RequirementsSection from "@/components/sections/RequirementsSection";
+import FAQSection from "@/components/sections/FAQSection";
+import FinalCTASection from "@/components/sections/FinalCTASection";
+import QuickBookingModal from "@/components/ui/QuickBookingModal";
+import CarDetailModal from "@/components/ui/CarDetailModal";
+import { Car } from "@/data/fleet";
 
 export default function Home() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedBookingCarId, setSelectedBookingCarId] = useState("porsche-718-cayman");
+  const [selectedDetailCar, setSelectedDetailCar] = useState<Car | null>(null);
+
+  const handleOpenBooking = (carId?: string) => {
+    if (carId) setSelectedBookingCarId(carId);
+    setIsBookingOpen(true);
+  };
+
+  const handleOpenDetail = (car: Car) => {
+    setSelectedDetailCar(car);
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="min-h-screen bg-[#050505] text-white selection:bg-[#FF2D20] selection:text-white">
+      {/* Navigation */}
+      <Navigation onOpenBooking={handleOpenBooking} />
+
+      {/* 1. Improvised Supercar Hero Section (Apple / Porsche Luxury Unveiling) */}
+      <HeroSection onOpenBooking={handleOpenBooking} />
+
+      {/* 2. All Brand Car Marquee Carousel Strip */}
+      <BrandCarouselStrip />
+
+      {/* 3. Featured Fleet Section (High-Contrast Platinum Light Studio) */}
+      <FeaturedFleetSection
+        onOpenBooking={handleOpenBooking}
+        onOpenDetail={handleOpenDetail}
+      />
+
+      {/* 4. Interactive Acoustic Engine Sound Simulator (Dark Studio) */}
+      <SoundSimulatorSection />
+
+      {/* 5. Experience Categories (Crisp Luxury Light Studio) */}
+      <ExperienceCategoriesSection onOpenBooking={() => handleOpenBooking()} />
+
+      {/* 6. Why Choose Us (Dark Carbon Studio & Metrics) */}
+      <WhyChooseUsSection />
+
+      {/* 7. Luxury Edge-to-Edge Showcase Gallery */}
+      <LuxuryShowcaseSection />
+
+      {/* 8. Video & Creator Reel Showcase (Dark Studio Cinema) */}
+      <VideoShowcaseSection />
+
+      {/* 9. Verified Customer Reviews (Platinum Light Section) */}
+      <CustomerReviewsSection />
+
+      {/* 10. 4-Step Booking Process Timeline (Dark Studio) */}
+      <BookingProcessSection onOpenBooking={() => handleOpenBooking()} />
+
+      {/* 11. Rental Requirements & Eligibility Check (Platinum Light Section) */}
+      <RequirementsSection />
+
+      {/* 12. FAQ Accordion */}
+      <FAQSection />
+
+      {/* 13. Final High-Conversion CTA (Dark Brembo Red Studio) */}
+      <FinalCTASection onOpenBooking={() => handleOpenBooking()} />
+
+      {/* Footer */}
+      <Footer onOpenBooking={() => handleOpenBooking()} />
+
+      {/* Touch-Optimized Mobile Sticky Action Bar */}
+      <MobileStickyBar onOpenBooking={handleOpenBooking} />
+
+      {/* Modals & Drawers */}
+      <QuickBookingModal
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+        selectedCarId={selectedBookingCarId}
+      />
+
+      <CarDetailModal
+        car={selectedDetailCar}
+        onClose={() => setSelectedDetailCar(null)}
+        onBookCar={handleOpenBooking}
+      />
+    </main>
   );
 }
