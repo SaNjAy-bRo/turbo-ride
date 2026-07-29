@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Maximize2, X, Camera, Sparkles } from "lucide-react";
+import { Maximize2, X, Camera } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -10,41 +10,41 @@ export default function LuxuryShowcaseSection() {
 
   const galleryImages = [
     {
-      src: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1600&q=85",
-      caption: "Porsche 718 Cayman in Dark Studio Setup",
-      tag: "Studio Polish"
+      src: "/images/porsche-yellow.png",
+      caption: "Porsche 718 Cayman Racing Yellow Studio Setup",
+      tag: "Racing Yellow"
     },
     {
-      src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=85",
-      caption: "Porsche Sport Chrono Cockpit & Leather Trim",
+      src: "/images/cockpit/porsche-cockpit.png",
+      caption: "Porsche 718 Sport Chrono Cockpit Interior",
       tag: "Cockpit Interior"
     },
     {
       src: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1600&q=85",
-      caption: "Lamborghini Huracán EVO Verde Mantis",
+      caption: "Lamborghini Huracán EVO Verde Mantis V10",
       tag: "V10 Emotion"
     },
     {
-      src: "https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=1600&q=85",
-      caption: "Ford Mustang GT 5.0 Coyote V8 Triple Yellow",
+      src: "/images/cockpit/lamborghini-cockpit.png",
+      caption: "Lamborghini Huracán Anima Cockpit & Forged Composites",
+      tag: "Supercar Cockpit"
+    },
+    {
+      src: "/images/mustang-gt-exterior.png",
+      caption: "Ford Mustang GT 5.0 Coyote V8 Shadow Black",
       tag: "V8 Power"
     },
     {
-      src: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1600&q=85",
-      caption: "Carbon Ceramic Brake System & Pirelli P Zero",
-      tag: "Engineering Close-up"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&q=85",
-      caption: "Night City Cruise in Bangalore",
-      tag: "Night Drive"
+      src: "/images/cockpit/mustang-cockpit.png",
+      caption: "Ford Mustang GT 12-inch Digital LCD Cockpit",
+      tag: "Track Apps"
     }
   ];
 
   return (
     <section id="gallery" className="py-24 bg-[#050505] relative overflow-hidden border-b border-white/10">
       {/* Background glow */}
-      <div className="ambient-gold-glow bottom-0 right-1/4 opacity-15" />
+      <div className="ambient-gold-glow bottom-0 right-1/4 opacity-15 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -57,11 +57,11 @@ export default function LuxuryShowcaseSection() {
             THE ART OF <span className="text-gradient-red">PERFORMANCE</span>
           </h2>
           <p className="text-neutral-400 text-sm mt-3 font-light">
-            Every curve, carbon fiber weave, and exhaust note captured in high-definition automotive detail.
+            Every curve, carbon fiber weave, and exhaust note of our Bangalore supercar fleet captured in high definition.
           </p>
         </div>
 
-        {/* Masonry / Grid Gallery */}
+        {/* 6 Grid Gallery */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryImages.map((img, idx) => (
             <motion.div
