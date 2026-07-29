@@ -101,6 +101,125 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
 
   const currentImage = viewMode === 'cockpit' && activeCar.cockpitImage ? activeCar.cockpitImage : activeCar.image;
 
+  // Extracted Telemetry HUD so it can render in both mobile (inline) and desktop (right column)
+  const renderTelemetryHUD = () => (
+    <div className="glass-card rounded-3xl p-6 sm:p-8 border border-white/20 shadow-2xl relative overflow-hidden group backdrop-blur-xl bg-black/60">
+      {/* Top View Mode Switcher */}
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2 text-xs font-heading font-bold text-white uppercase tracking-wider">
+          <Sparkles className="w-4 h-4" style={{ color: activeCar.brandColor }} />
+          <span>Telemetry HUD</span>
+        </div>
+
+        <div className="flex items-center gap-1 glass-pill p-1 rounded-lg border border-white/15 text-[10px]">
+          <button
+            onClick={() => setViewMode('video')}
+            className={`px-2.5 py-1 rounded-md font-heading uppercase transition-colors flex items-center gap-1 ${
+              viewMode === 'video' ? "bg-white text-black font-bold" : "text-neutral-300 hover:text-white"
+            }`}
+          >
+            <Video className="w-3 h-3" />
+            Video
+          </button>
+          <button
+            onClick={() => setViewMode('exterior')}
+            className={`px-2.5 py-1 rounded-md font-heading uppercase transition-colors ${
+              viewMode === 'exterior' ? "bg-white text-black font-bold" : "text-neutral-300 hover:text-white"
+            }`}
+          >
+            Exterior
+          </button>
+          <button
+            onClick={() => setViewMode('cockpit')}
+            className={`px-2.5 py-1 rounded-md font-heading uppercase transition-colors ${
+              viewMode === 'cockpit' ? "bg-white text-black font-bold" : "text-neutral-300 hover:text-white"
+            }`}
+          >
+            Cockpit
+          </button>
+        </div>
+      </div>
+
+      {/* Vehicle Highlight Card */}
+      <div className="relative h-64 rounded-2xl overflow-hidden mb-6 border border-white/15 bg-neutral-900 shadow-inner">
+        <Image
+          src={currentImage}
+          alt={activeCar.name}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+
+        {/* Video Play/Pause Overlay Button */}
+        {viewMode === 'video' && (
+          <button
+            onClick={toggleVideoPlayback}
+            className="absolute top-3 right-3 p-2.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-colors"
+          >
+            {isVideoPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current" />}
+          </button>
+        )}
+
+        <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-white">
+          <div>
+            <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-300">
+              {activeCar.brand} Performance
+            </span>
+            <h3 className="font-heading text-xl font-extrabold">{activeCar.name}</h3>
+          </div>
+
+          <div className="text-right">
+            <span className="text-[10px] text-neutral-400 block uppercase">Rental Rate</span>
+            <span className="font-heading text-lg font-extrabold" style={{ color: activeCar.brandColor }}>
+              ₹{activeCar.pricePerDay.toLocaleString('en-IN')}<span className="text-xs font-normal text-neutral-400">/day</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Jet Fighter Telemetry Metrics Grid */}
+      <div className="grid grid-cols-3 gap-2.5 text-center mb-4">
+        <div className="p-3 rounded-xl bg-neutral-950/90 border border-white/10">
+          <div className="flex items-center justify-center gap-1 text-[10px] text-neutral-400 uppercase font-semibold">
+            <Flame className="w-3.5 h-3.5 text-[#FF2D20]" /> Output
+          </div>
+          <div className="font-heading text-base font-extrabold text-white mt-1">
+            {activeCar.horsepower} HP
+          </div>
+          <div className="text-[9px] text-neutral-500 truncate mt-0.5">{activeCar.engine}</div>
+        </div>
+
+        <div className="p-3 rounded-xl bg-neutral-950/90 border border-white/10">
+          <div className="flex items-center justify-center gap-1 text-[10px] text-neutral-400 uppercase font-semibold">
+            <Gauge className="w-3.5 h-3.5" style={{ color: activeCar.brandColor }} /> 0-100
+          </div>
+          <div className="font-heading text-base font-extrabold text-white mt-1">
+            {activeCar.acceleration}
+          </div>
+          <div className="text-[9px] text-neutral-500 mt-0.5">Sprint Time</div>
+        </div>
+
+        <div className="p-3 rounded-xl bg-neutral-950/90 border border-white/10">
+          <div className="flex items-center justify-center gap-1 text-[10px] text-neutral-400 uppercase font-semibold">
+            <Zap className="w-3.5 h-3.5 text-[#FF2D20]" /> Top Speed
+          </div>
+          <div className="font-heading text-base font-extrabold text-white mt-1">
+            {activeCar.topSpeed}
+          </div>
+          <div className="text-[9px] text-neutral-500 mt-0.5">Maximum V-max</div>
+        </div>
+      </div>
+
+      {/* Quick Perks */}
+      <div className="flex items-center justify-between text-xs text-neutral-400 pt-2 border-t border-white/10">
+        <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
+          <ShieldCheck className="w-4 h-4" /> Insured Handover
+        </span>
+        <span className="text-white font-heading font-medium">150 km/day included</span>
+      </div>
+    </div>
+  );
+
   return (
     <section className="relative min-h-screen flex flex-col justify-between pt-28 pb-12 overflow-hidden bg-[#050505] border-b border-white/10">
       {/* Pure High-Definition Background Media Engine for Mobile & Desktop */}
@@ -148,14 +267,14 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
       </AnimatePresence>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto">
-        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
-          {/* Headline & Subheadline (Mobile Order 1) */}
+          {/* Left Column: Headline + Tabs + Buttons (Desktop original layout) */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="order-1 lg:order-1 lg:col-span-7 space-y-4 text-center lg:text-left w-full"
+            className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
             {/* Main Headline */}
             <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.05] drop-shadow-2xl">
@@ -174,139 +293,12 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
             <p className="font-body text-neutral-300 text-base sm:text-xl max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed drop-shadow-md">
               Experience world-class supercars on the finest roads of Bangalore. Pure mechanical emotion, laser-sharp PDK dynamics, and white-glove doorstep handover.
             </p>
-          </motion.div>
 
-          {/* Supercar Telemetry HUD Card (Mobile Order 2 -> MOVES UP ON MOBILE) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="order-2 lg:order-3 lg:col-span-5 w-full relative"
-          >
-            <div className="glass-card rounded-3xl p-6 sm:p-8 border border-white/20 shadow-2xl relative overflow-hidden group backdrop-blur-xl bg-black/60">
-              {/* Top View Mode Switcher */}
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2 text-xs font-heading font-bold text-white uppercase tracking-wider">
-                  <Sparkles className="w-4 h-4" style={{ color: activeCar.brandColor }} />
-                  <span>Telemetry HUD</span>
-                </div>
-
-                <div className="flex items-center gap-1 glass-pill p-1 rounded-lg border border-white/15 text-[10px]">
-                  <button
-                    onClick={() => setViewMode('video')}
-                    className={`px-2.5 py-1 rounded-md font-heading uppercase transition-colors flex items-center gap-1 ${
-                      viewMode === 'video' ? "bg-white text-black font-bold" : "text-neutral-300 hover:text-white"
-                    }`}
-                  >
-                    <Video className="w-3 h-3" />
-                    Video
-                  </button>
-                  <button
-                    onClick={() => setViewMode('exterior')}
-                    className={`px-2.5 py-1 rounded-md font-heading uppercase transition-colors ${
-                      viewMode === 'exterior' ? "bg-white text-black font-bold" : "text-neutral-300 hover:text-white"
-                    }`}
-                  >
-                    Exterior
-                  </button>
-                  <button
-                    onClick={() => setViewMode('cockpit')}
-                    className={`px-2.5 py-1 rounded-md font-heading uppercase transition-colors ${
-                      viewMode === 'cockpit' ? "bg-white text-black font-bold" : "text-neutral-300 hover:text-white"
-                    }`}
-                  >
-                    Cockpit
-                  </button>
-                </div>
-              </div>
-
-              {/* Vehicle Highlight Card */}
-              <div className="relative h-64 rounded-2xl overflow-hidden mb-6 border border-white/15 bg-neutral-900 shadow-inner">
-                <Image
-                  src={currentImage}
-                  alt={activeCar.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-
-                {/* Video Play/Pause Overlay Button */}
-                {viewMode === 'video' && (
-                  <button
-                    onClick={toggleVideoPlayback}
-                    className="absolute top-3 right-3 p-2.5 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black transition-colors"
-                  >
-                    {isVideoPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current" />}
-                  </button>
-                )}
-
-                <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-white">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-300">
-                      {activeCar.brand} Performance
-                    </span>
-                    <h3 className="font-heading text-xl font-extrabold">{activeCar.name}</h3>
-                  </div>
-
-                  <div className="text-right">
-                    <span className="text-[10px] text-neutral-400 block uppercase">Rental Rate</span>
-                    <span className="font-heading text-lg font-extrabold" style={{ color: activeCar.brandColor }}>
-                      ₹{activeCar.pricePerDay.toLocaleString('en-IN')}<span className="text-xs font-normal text-neutral-400">/day</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Jet Fighter Telemetry Metrics Grid */}
-              <div className="grid grid-cols-3 gap-2.5 text-center mb-4">
-                <div className="p-3 rounded-xl bg-neutral-950/90 border border-white/10">
-                  <div className="flex items-center justify-center gap-1 text-[10px] text-neutral-400 uppercase font-semibold">
-                    <Flame className="w-3.5 h-3.5 text-[#FF2D20]" /> Output
-                  </div>
-                  <div className="font-heading text-base font-extrabold text-white mt-1">
-                    {activeCar.horsepower} HP
-                  </div>
-                  <div className="text-[9px] text-neutral-500 truncate mt-0.5">{activeCar.engine}</div>
-                </div>
-
-                <div className="p-3 rounded-xl bg-neutral-950/90 border border-white/10">
-                  <div className="flex items-center justify-center gap-1 text-[10px] text-neutral-400 uppercase font-semibold">
-                    <Gauge className="w-3.5 h-3.5" style={{ color: activeCar.brandColor }} /> 0-100
-                  </div>
-                  <div className="font-heading text-base font-extrabold text-white mt-1">
-                    {activeCar.acceleration}
-                  </div>
-                  <div className="text-[9px] text-neutral-500 mt-0.5">Sprint Time</div>
-                </div>
-
-                <div className="p-3 rounded-xl bg-neutral-950/90 border border-white/10">
-                  <div className="flex items-center justify-center gap-1 text-[10px] text-neutral-400 uppercase font-semibold">
-                    <Zap className="w-3.5 h-3.5 text-[#FF2D20]" /> Top Speed
-                  </div>
-                  <div className="font-heading text-base font-extrabold text-white mt-1">
-                    {activeCar.topSpeed}
-                  </div>
-                  <div className="text-[9px] text-neutral-500 mt-0.5">Maximum V-max</div>
-                </div>
-              </div>
-
-              {/* Quick Perks */}
-              <div className="flex items-center justify-between text-xs text-neutral-400 pt-2 border-t border-white/10">
-                <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
-                  <ShieldCheck className="w-4 h-4" /> Insured Handover
-                </span>
-                <span className="text-white font-heading font-medium">150 km/day included</span>
-              </div>
+            {/* Mobile-Only: Telemetry HUD inserted between headline & tabs */}
+            <div className="block lg:hidden">
+              {renderTelemetryHUD()}
             </div>
-          </motion.div>
 
-          {/* Car Selection Switcher Tabs & Action Buttons (Mobile Order 3 -> MOVES DOWN BELOW TELEMETRY HUD) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="order-3 lg:order-2 lg:col-span-7 space-y-6 text-center lg:text-left w-full mt-2 lg:mt-0"
-          >
             {/* Car Switcher Tabs */}
             <div className="pt-2">
               <div className="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2 drop-shadow">
@@ -336,7 +328,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
               <button
                 onClick={() => onOpenBooking(activeCarId)}
                 className="relative group overflow-hidden rounded-xl p-[1px] font-semibold text-xs sm:text-sm uppercase tracking-widest shadow-2xl"
@@ -367,6 +359,15 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
             </div>
           </motion.div>
 
+          {/* Right Column: Telemetry HUD (Desktop only — mobile version is rendered inline above) */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="hidden lg:block lg:col-span-5 relative"
+          >
+            {renderTelemetryHUD()}
+          </motion.div>
         </div>
       </div>
 
