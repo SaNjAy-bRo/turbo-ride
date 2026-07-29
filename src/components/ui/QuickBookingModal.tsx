@@ -149,7 +149,7 @@ export default function QuickBookingModal({
                 className="w-full py-4 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#128C7E] hover:to-[#25D366] text-black font-heading text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-xl shadow-[#25D366]/25 transition-all"
               >
                 <WhatsAppIcon className="w-5 h-5" />
-                <span>Confirm & Open WhatsApp Concierge</span>
+                <span>Submit Reservation</span>
                 <ChevronRight className="w-5 h-5" />
               </button>
             </form>
