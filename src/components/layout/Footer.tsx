@@ -3,10 +3,10 @@ import Image from "next/image";
 import { BANGALORE_LOCATIONS } from "@/data/locations";
 
 interface FooterProps {
-  onOpenBooking: () => void;
+  onOpenBooking?: () => void;
 }
 
-export default function Footer({ onOpenBooking }: FooterProps) {
+export default function Footer({}: FooterProps) {
   return (
     <footer className="relative bg-[#050505] text-white pt-20 pb-28 lg:pb-12 border-t border-white/10 overflow-hidden">
       {/* Ambient background glows */}
@@ -28,7 +28,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
             </div>
 
             <p className="text-neutral-400 text-sm leading-relaxed max-w-md">
-              Bangalore&apos;s premier luxury supercar rental platform. Delivering precision engineering, raw V8 & V10 emotion, and white-glove concierge experiences across Karnataka.
+              Bengaluru&apos;s premier supercar drive experience provider. Delivering guided open-road runs, high-performance V8 & V10 emotion, and 4K media packages.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -56,23 +56,18 @@ export default function Footer({ onOpenBooking }: FooterProps) {
             </h4>
             <ul className="space-y-2.5 text-xs text-neutral-400 font-medium">
               <li>
-                <a href="#porsche-718-cayman" className="hover:text-[#FF2D20] transition-colors flex items-center gap-1">
+                <a href="#fleet" className="hover:text-[#FF2D20] transition-colors flex items-center gap-1">
                   Porsche 718 Cayman <span className="text-[9px] bg-emerald-500/20 text-emerald-400 px-1 py-0.2 rounded">Available</span>
                 </a>
               </li>
               <li>
-                <a href="#lamborghini-huracan-evo" className="hover:text-[#FF2D20] transition-colors flex items-center gap-1">
+                <a href="#fleet" className="hover:text-[#FF2D20] transition-colors flex items-center gap-1">
                   Lamborghini Huracán EVO <span className="text-[9px] bg-amber-500/20 text-amber-400 px-1 py-0.2 rounded">Soon</span>
                 </a>
               </li>
               <li>
-                <a href="#ford-mustang-gt-v8" className="hover:text-[#FF2D20] transition-colors flex items-center gap-1">
+                <a href="#fleet" className="hover:text-[#FF2D20] transition-colors flex items-center gap-1">
                   Ford Mustang GT V8 <span className="text-[9px] bg-amber-500/20 text-amber-400 px-1 py-0.2 rounded">Soon</span>
-                </a>
-              </li>
-              <li>
-                <a href="#ferrari-f8-tributo" className="hover:text-[#FF2D20] transition-colors">
-                  Ferrari F8 Tributo (VIP)
                 </a>
               </li>
             </ul>
@@ -81,22 +76,21 @@ export default function Footer({ onOpenBooking }: FooterProps) {
           {/* Column 3: Services */}
           <div className="space-y-4">
             <h4 className="font-heading text-sm font-bold uppercase tracking-widest text-[#FFD000]">
-              Services
+              Drive Offerings
             </h4>
             <ul className="space-y-2.5 text-xs text-neutral-400 font-medium">
-              <li><a href="#experiences" className="hover:text-white transition-colors">Self Drive Rental</a></li>
-              <li><a href="#experiences" className="hover:text-white transition-colors">Ride Along Thrill</a></li>
-              <li><a href="#experiences" className="hover:text-white transition-colors">Luxury Road Trips</a></li>
-              <li><a href="#experiences" className="hover:text-white transition-colors">Cinematic Photoshoots</a></li>
-              <li><a href="#experiences" className="hover:text-white transition-colors">Wedding Grand Entry</a></li>
-              <li><a href="#experiences" className="hover:text-white transition-colors">Corporate Events</a></li>
+              <li><a href="#experiences" className="hover:text-white transition-colors">Highway Drive Sessions</a></li>
+              <li><a href="#experiences" className="hover:text-white transition-colors">Safety Pilot Briefings</a></li>
+              <li><a href="#experiences" className="hover:text-white transition-colors">4K Photoshoots & Reels</a></li>
+              <li><a href="#why-us" className="hover:text-white transition-colors">Safety Guidelines</a></li>
+              <li><a href="#faq" className="hover:text-white transition-colors">Support & FAQs</a></li>
             </ul>
           </div>
 
           {/* Column 4: Bangalore Locations */}
           <div className="space-y-4">
             <h4 className="font-heading text-sm font-bold uppercase tracking-widest text-[#FFD000]">
-              Bangalore Zones
+              Bengaluru Zones
             </h4>
             <div className="space-y-2 text-xs text-neutral-400">
               {BANGALORE_LOCATIONS.map((loc) => (
@@ -115,13 +109,14 @@ export default function Footer({ onOpenBooking }: FooterProps) {
         {/* Bottom copyright */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
           <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} TurboRide Supercars Bangalore. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} TurboRide Supercars Bengaluru. All rights reserved.</span>
           </div>
 
           <div className="flex items-center gap-6 text-neutral-400">
-            <a href="#faq" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#faq" className="hover:text-white transition-colors">Rental Terms</a>
-            <a href="#faq" className="hover:text-white transition-colors">Insurance Policy</a>
+            <a href="#fleet" className="hover:text-white transition-colors">Book Drive</a>
+            <a href="#fleet" className="hover:text-white transition-colors">Supercar Fleet</a>
+            <a href="#why-us" className="hover:text-white transition-colors">Safety Guidelines</a>
+            <a href="#faq" className="hover:text-white transition-colors">Support</a>
           </div>
         </div>
       </div>

@@ -27,13 +27,13 @@ export default function ExperienceCategoriesSection({ onOpenBooking }: Experienc
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-[#FF2D20] block mb-2">
-            Tailored Automotive Offerings
+            Tailored Drive Offerings
           </span>
           <h2 className="font-heading text-3xl sm:text-5xl font-black text-black tracking-tight">
-            LUXURY <span className="text-[#FF2D20]">EXPERIENCES</span>
+            SUPERCAR <span className="text-[#FF2D20]">EXPERIENCES</span>
           </h2>
           <p className="text-neutral-600 text-sm mt-3 font-normal">
-            Whether you demand raw self-drive thrill, a memorable wedding grand entrance, or high-fashion photoshoot production, we tailor every detail.
+            Curated highway drive sessions engineered for pure performance, thrill, safety pilot guidance, and 4K media capture.
           </p>
         </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Shield, ChevronRight, Menu, X, Phone } from "lucide-react";
+import { Shield, ChevronRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import WhatsAppIcon from "@/components/ui/WhatsAppIcon";
@@ -28,13 +28,12 @@ export default function Navigation({ onOpenBooking }: NavigationProps) {
   }, []);
 
   const navLinks = [
-    { name: "Fleet", href: "#fleet" },
+    { name: "Supercar Fleet", href: "#fleet" },
     { name: "Engine Sound", href: "#sound-experience" },
     { name: "Experiences", href: "#experiences" },
-    { name: "Why Us", href: "#why-us" },
-    { name: "Gallery", href: "#gallery" },
+    { name: "Safety Guidelines", href: "#why-us" },
     { name: "Reviews", href: "#reviews" },
-    { name: "FAQ", href: "#faq" },
+    { name: "Support", href: "#faq" },
   ];
 
   return (
@@ -77,7 +76,7 @@ export default function Navigation({ onOpenBooking }: NavigationProps) {
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-4">
               <a
-                href="https://wa.me/919876543210?text=Hi%20TurboRide%2C%20I%20would%20like%20to%20inquire%20about%20renting%20a%20supercar%20in%20Bangalore."
+                href="https://wa.me/919876543210?text=Hi%20TurboRide%2C%20I%20would%20like%20to%20inquire%20about%20a%20supercar%20drive%20experience%20in%20Bengaluru."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-300 hover:text-white px-4 py-2.5 rounded-lg border border-white/10 hover:border-[#25D366]/50 hover:bg-[#25D366]/10 transition-all duration-300"
@@ -85,27 +84,10 @@ export default function Navigation({ onOpenBooking }: NavigationProps) {
                 <WhatsAppIcon className="w-4 h-4" />
                 <span>WhatsApp</span>
               </a>
-
-              <button
-                onClick={() => onOpenBooking()}
-                className="relative group overflow-hidden rounded-xl p-[1px] font-semibold text-xs uppercase tracking-widest"
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-[#FF2D20] via-[#FFD000] to-[#FF2D20] rounded-xl group-hover:opacity-100 transition-opacity duration-300 opacity-80 animate-pulse-glow" />
-                <span className="relative flex items-center gap-2 px-5 py-2.5 rounded-[11px] bg-[#050505] text-white group-hover:bg-[#FF2D20] group-hover:text-black transition-all duration-300 font-heading">
-                  <span>Book Now</span>
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                </span>
-              </button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button (No top bar Book button, shown inside burger menu) */}
             <div className="flex lg:hidden items-center gap-3">
-              <button
-                onClick={() => onOpenBooking()}
-                className="px-3.5 py-1.5 rounded-lg bg-[#FF2D20] text-black font-heading text-xs font-bold uppercase tracking-wider"
-              >
-                Book
-              </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 rounded-lg bg-neutral-900 border border-white/10 text-white hover:text-[#FF2D20] transition-colors"

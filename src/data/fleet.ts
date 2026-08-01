@@ -70,7 +70,7 @@ export const FLEET_DATA: Car[] = [
       "Apple CarPlay® & Launch Control"
     ],
     description: "The benchmark mid-engine sports car. Crafted for purists who demand laser-sharp handling on Nandi Hills curves or seamless elegance on Bangalore's expressways.",
-    suitableFor: ["Self Drive", "Weekend Getaway", "Track Experience", "Photoshoots"]
+    suitableFor: ["Highway Drive Experience", "Guided Highway Run", "Track Experience", "Photoshoots"]
   },
   {
     id: "lamborghini-huracan-evo",
@@ -79,8 +79,8 @@ export const FLEET_DATA: Car[] = [
     model: "Huracán EVO V10",
     tagline: "Naturally Aspirated V10 Symphony. Raw Emotional Power.",
     status: "coming-soon",
-    statusLabel: "Arriving Soon – Pre-Book Access",
-    pricePerDay: 75000,
+    statusLabel: "Arriving Soon",
+    pricePerDay: 0,
     engine: "5.2L Naturally Aspirated V10",
     horsepower: 640,
     acceleration: "2.9s",
@@ -110,7 +110,7 @@ export const FLEET_DATA: Car[] = [
       "Forged Composites® Interior Trim"
     ],
     description: "An Italian masterpiece engineered to thrill every sense. The 5.2-liter V10 engine delivers an explosive roar and unmatched visual drama for high-profile entries and VIP occasions.",
-    suitableFor: ["Wedding Entry", "VIP Corporate Events", "Music Videos", "Ride Along"]
+    suitableFor: ["Highway Experience Drive", "Guided Thrill Drive", "Photoshoots"]
   },
   {
     id: "ford-mustang-gt-v8",
@@ -119,8 +119,8 @@ export const FLEET_DATA: Car[] = [
     model: "Mustang GT 5.0 V8",
     tagline: "Pure American Muscle. Thunderous V8 Exhaust Note.",
     status: "coming-soon",
-    statusLabel: "Arriving Soon – Join Waitlist",
-    pricePerDay: 32000,
+    statusLabel: "Arriving Soon",
+    pricePerDay: 0,
     engine: "5.0L Coyote V8",
     horsepower: 450,
     acceleration: "4.3s",

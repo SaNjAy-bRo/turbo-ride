@@ -68,8 +68,8 @@ export const REVIEWS_DATA: Review[] = [
 ];
 
 export const TRUST_STATS = [
-  { label: "Supercar Drives Completed", value: "500+", description: "Flawlessly delivered across Bangalore & Karnataka" },
-  { label: "Google & Social Rating", value: "4.9 ★", description: "Based on 180+ verified client testimonials" },
-  { label: "Insured Fleet Coverage", value: "100%", description: "Zero-deductible comprehensive insurance" },
-  { label: "Concierge Response Time", value: "< 15m", description: "Direct WhatsApp & dedicated concierge hotline" },
+  { label: "Drives Completed", value: "500+", description: "Flawlessly executed highway drive experiences in Bengaluru" },
+  { label: "Google & Social Rating", value: "4.9 ★", description: "Based on 105+ verified client testimonials" },
+  { label: "Insured Fleet Coverage", value: "100%", description: "Full insurance coverage for peace of mind" },
+  { label: "Response Time", value: "< 15m", description: "Dedicated drive booking support via WhatsApp & phone" },
 ];

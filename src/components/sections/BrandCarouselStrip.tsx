@@ -13,17 +13,7 @@ interface Brand {
 const BRANDS: Brand[] = [
   { name: "Porsche", logo: "/images/logos/porsche.svg" },
   { name: "Lamborghini", logo: "/images/logos/lamborghini.svg" },
-  { name: "BMW", logo: "/images/logos/bmw.svg" },
-  { name: "Mercedes-Benz", logo: "/images/logos/mercedes.svg" },
-  { name: "Audi", logo: "/images/logos/audi.svg" },
   { name: "Ford Mustang", logo: "/images/logos/ford.svg" },
-  { name: "Land Rover", logo: "/images/logos/landrover.svg" },
-  { name: "McLaren", logo: "/images/logos/mclaren.svg" },
-  { name: "Bugatti", logo: "/images/logos/bugatti.svg" },
-  { name: "Aston Martin", logo: "/images/logos/astonmartin.svg" },
-  { name: "Bentley", logo: "/images/logos/bentley.svg" },
-  { name: "Maserati", logo: "/images/logos/maserati.svg" },
-  { name: "Rolls-Royce", logo: "/images/logos/rollsroyce.svg" },
 ];
 
 export default function BrandCarouselStrip() {

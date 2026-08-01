@@ -12,68 +12,51 @@ export interface Experience {
 
 export const EXPERIENCES_DATA: Experience[] = [
   {
-    id: "porsche-self-drive",
-    title: "Porsche 718 Cayman Self Drive",
-    subtitle: "Command mid-engine precision on Bangalore's finest expressways.",
-    badge: "Most Popular",
-    description: "Take absolute control of the wheel. White-glove doorstep delivery of the Racing Yellow Porsche 718 Cayman directly to your location in Bangalore.",
+    id: "highway-experience-drive",
+    title: "Guided Highway Experience Drives",
+    subtitle: "High-speed open highway runs accompanied by professional safety pilots.",
+    badge: "Core Experience",
+    description: "Take the wheel for a thrilling highway drive session. Complete open-road freedom on Bengaluru's finest expressway stretches with real-time pilot guidance.",
     highlights: [
-      "24-Hour / Multi-Day Rental Options",
-      "Doorstep Delivery across UB City & Airport Expressway",
-      "Comprehensive Zero-Deductible Insurance Coverage",
-      "Sport Chrono & Launch Control Briefing"
+      "Per-Session Experience Package",
+      "Professional Safety Pilot & Route Briefing",
+      "Full Commercial Insurance & Fuel Included",
+      "Launch Control & Mode Switch Demonstration"
     ],
     image: "/images/porsche-yellow.png",
-    iconName: "Key",
-    idealFor: "Enthusiasts, Anniversaries & Birthday Surprises"
-  },
-  {
-    id: "lamborghini-thrill",
-    title: "Lamborghini Huracán V10 Experience",
-    subtitle: "Raw 640 HP naturally aspirated V10 emotional roar.",
-    badge: "High Emotion",
-    description: "Experience Italian supercar royalty. Available for high-speed road trips, VIP event arrivals, and thrilling ride-along experiences.",
-    highlights: [
-      "Naturally Aspirated 5.2L V10 Exhaust Roar",
-      "LDVI Dynamics & Anima Mode Switch",
-      "Ideal for VIP entries & prestige occasions",
-      "Complimentary HD GoPro Cockpit Capture"
-    ],
-    image: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1200&q=85",
     iconName: "Flame",
-    idealFor: "Thrill Seekers & VIP Prestige Events"
+    idealFor: "Automotive Enthusiasts & Thrill Seekers"
   },
   {
-    id: "mustang-gt-drive",
-    title: "Ford Mustang GT V8 Muscle Drive",
-    subtitle: "Pure 5.0L Coyote V8 roar & iconic American muscle stance.",
-    badge: "Muscle Icon",
-    description: "Unleash 450 horsepower of pure American muscle. Deep rumble quad exhaust, MagneRide suspension, and head-turning presence on every avenue.",
+    id: "content-media-package",
+    title: "Content & 4K Media Packages",
+    subtitle: "Professional photoshoots & Instagram reels captured during your session.",
+    badge: "Media Included",
+    description: "Document your supercar moment in cinematic 4K. Professional automotive photographers capture high-res exterior stills and dynamic highway reels.",
     highlights: [
-      "5.0L Coyote V8 Active Valve Exhaust",
-      "Brembo 6-Piston Performance Brakes",
-      "Smooth 10-Speed Automatic Cruise",
-      "Perfect for photoshoots & weekend cruising"
+      "High-Resolution Exterior & Cockpit Stills",
+      "Ready-to-Post Instagram Reel Edit",
+      "GoPro Cockpit Audio & Video Capture",
+      "Delivered within 24 Hours of Drive"
     ],
     image: "/images/mustang-gt-exterior.png",
     iconName: "Zap",
-    idealFor: "Weekend Escapes & Automotive Purists"
+    idealFor: "Content Creators, Surprises & Special Moments"
   },
-
   {
-    id: "nandi-hills-roadtrip",
-    title: "Nandi Hills Supercar Road Trip",
-    subtitle: "Curated 100km+ dawn highway convoy & mountain run.",
-    badge: "Curated Tour",
-    description: "Join a pre-mapped sunrise drive from Bangalore to Nandi Hills. Includes smooth tarmac routes, luxury breakfast stopover, and aerial drone video capture.",
+    id: "pilot-safety-briefing",
+    title: "Supercar Pilot & Dynamics Briefing",
+    subtitle: "Complete walkthrough of PDK dynamics, launch control, and supercar handling.",
+    badge: "Safety First",
+    description: "Before hitting the open road, receive a comprehensive cockpit briefing covering drive modes, launch control procedures, and high-speed safety protocols.",
     highlights: [
-      "Pre-mapped smooth tarmac routes",
-      "Support vehicle & technical concierge",
-      "Luxury breakfast / high-tea included",
-      "Drone video & cinematic edit"
+      "Cockpit Control Walkthrough",
+      "PDK / Dual-Clutch Gearbox Overview",
+      "Safety Protocols & Route Pre-Check",
+      "Live Pilot Support Throughout Session"
     ],
-    image: "/images/porsche-yellow.png",
-    iconName: "Compass",
-    idealFor: "Automotive Purists & Sunrise Highway Drives"
+    image: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1200&q=85",
+    iconName: "Key",
+    idealFor: "First-Time Supercar Drivers"
   }
 ];

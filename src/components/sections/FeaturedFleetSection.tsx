@@ -19,12 +19,6 @@ export default function FeaturedFleetSection({
   const [filter, setFilter] = useState<'all' | 'available' | 'coming-soon'>('all');
   const [activeYtId, setActiveYtId] = useState<string | null>(null);
 
-  const ytVideos = [
-    { id: "Pu6qToY1TE0", title: "Supercar Experience • Bangalore Roads", category: "Experience" },
-    { id: "kgDCfi1eycM", title: "Exhaust & Launch Control • Raw Sound", category: "Sound" },
-    { id: "SjoSlwEXKhc", title: "Supercar Showcase • Full Walkthrough", category: "Showcase" },
-  ];
-
   const filteredFleet = FLEET_DATA.filter((car) => {
     if (filter === 'available') return car.status === 'available';
     if (filter === 'coming-soon') return car.status === 'coming-soon' || car.status === 'vip-reserve';
@@ -48,7 +42,7 @@ export default function FeaturedFleetSection({
               FEATURED <span className="text-[#FF2D20]">FLEET</span>
             </h2>
             <p className="text-neutral-600 text-sm max-w-xl mt-3 font-normal">
-              Meticulously maintained high-performance machines. Available for self drive, luxury road trips, and VIP event entries.
+              Meticulously maintained, highperformance supercars. Available for guided highway drives and photoshoots.
             </p>
           </div>
 
@@ -118,7 +112,7 @@ export default function FeaturedFleetSection({
                           : "bg-amber-500 text-black"
                       }`}
                     >
-                      {car.statusLabel}
+                      {car.status === 'available' ? 'Available Now in Bengaluru' : 'Arriving Soon'}
                     </span>
                   </div>
 
@@ -169,10 +163,10 @@ export default function FeaturedFleetSection({
 
                   <div className="p-2.5 rounded-lg bg-neutral-100">
                     <div className="flex items-center justify-center gap-1 text-[10px] text-neutral-500 uppercase font-semibold">
-                      <Zap className="w-3 h-3 text-[#FF2D20]" /> Top
+                      <Zap className="w-3 h-3 text-[#FF2D20]" /> Gearbox
                     </div>
-                    <div className="font-heading text-sm font-bold text-black mt-0.5">
-                      {car.topSpeed}
+                    <div className="font-heading text-sm font-bold text-black mt-0.5 text-xs truncate">
+                      {car.transmission.split(' ')[0]}
                     </div>
                   </div>
                 </div>
@@ -181,9 +175,9 @@ export default function FeaturedFleetSection({
               {/* Price & Booking Actions */}
               <div className="flex items-center justify-between pt-2">
                 <div>
-                  <div className="text-[10px] uppercase font-semibold text-neutral-500">Daily Rate</div>
-                  <div className="font-heading text-xl font-extrabold text-black">
-                    ₹{car.pricePerDay.toLocaleString('en-IN')}<span className="text-xs font-normal text-neutral-500">/day</span>
+                  <div className="text-[10px] uppercase font-semibold text-neutral-500">Package Type</div>
+                  <div className="font-heading text-xs font-bold text-neutral-800">
+                    Drive Experience
                   </div>
                 </div>
 
@@ -191,17 +185,20 @@ export default function FeaturedFleetSection({
                   <button
                     onClick={() => onOpenDetail(car)}
                     className="p-3 rounded-xl bg-neutral-100 border border-neutral-300 hover:bg-neutral-200 text-black transition-colors"
+                    title="Full Specs"
                   >
                     <Info className="w-4 h-4" />
                   </button>
 
-                  <button
-                    onClick={() => onOpenBooking(car.id)}
-                    className="px-4 py-3 rounded-xl bg-[#FF2D20] hover:bg-[#e02619] text-white font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-md shadow-[#FF2D20]/20 transition-all"
-                  >
-                    <span>Reserve</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
+                  {car.status === 'available' ? (
+                    <button
+                      onClick={() => onOpenBooking(car.id)}
+                      className="px-4 py-3 rounded-xl bg-[#FF2D20] hover:bg-[#e02619] text-white font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-md shadow-[#FF2D20]/20 transition-all"
+                    >
+                      <span>Reserve Drive</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                  ) : null}
                 </div>
               </div>
             </motion.div>
@@ -219,7 +216,11 @@ export default function FeaturedFleetSection({
           </h3>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {ytVideos.map((video, idx) => (
+            {[
+              { id: "cDyVdCg5vJo", title: "supercar experience. review", category: "REVIEW" },
+              { id: "zDEWhGPGXJ8", title: "supercar experience. review", category: "REVIEW" },
+              { id: "uGpnjB50Bb0", title: "supercar experience. Customer drive", category: "EXPERIENCE" },
+            ].map((video, idx) => (
               <motion.div
                 key={video.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -232,7 +233,7 @@ export default function FeaturedFleetSection({
                 {/* YouTube Thumbnail */}
                 <div className="relative aspect-video w-full bg-neutral-100 overflow-hidden">
                   <Image
-                    src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                    src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
                     alt={video.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"

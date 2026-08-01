@@ -142,12 +142,12 @@ export default function CarDetailModal({ car, onClose, onBookCar }: CarDetailMod
                     <div className="p-3 rounded-xl bg-neutral-900/80 border border-white/5">
                       <div className="flex items-center gap-1.5 text-[10px] uppercase font-semibold text-neutral-400">
                         <Shield className="w-3.5 h-3.5 text-emerald-400" />
-                        Daily Rate
+                        Package Type
                       </div>
-                      <div className="font-heading text-lg font-bold text-[#FFD000] mt-1">
-                        ₹{car.pricePerDay.toLocaleString('en-IN')}
+                      <div className="font-heading text-sm font-bold text-[#FFD000] mt-1">
+                        Experience Drive
                       </div>
-                      <div className="text-[10px] text-neutral-500">Includes 150 km/day</div>
+                      <div className="text-[10px] text-neutral-500">Fuel & Pilot Included</div>
                     </div>
                   </div>
 
@@ -169,17 +169,26 @@ export default function CarDetailModal({ car, onClose, onBookCar }: CarDetailMod
 
                 {/* Action Buttons */}
                 <div className="pt-4 border-t border-white/10 flex items-center gap-4">
-                  <button
-                    onClick={() => {
-                      onClose();
-                      onBookCar(car.id);
-                    }}
-                    className="flex-1 py-3.5 rounded-xl bg-[#FF2D20] hover:bg-[#e02619] text-[#000000] font-heading text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#FF2D20]/20 transition-all"
-                  >
-                    <Calendar className="w-4 h-4" />
-                    <span>Reserve Vehicle</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                  {car.status === 'available' ? (
+                    <button
+                      onClick={() => {
+                        onClose();
+                        onBookCar(car.id);
+                      }}
+                      className="flex-1 py-3.5 rounded-xl bg-[#FF2D20] hover:bg-[#e02619] text-white font-heading text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#FF2D20]/20 transition-all"
+                    >
+                      <Calendar className="w-4 h-4" />
+                      <span>Book Drive Experience</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  ) : (
+                    <button
+                      disabled
+                      className="flex-1 py-3.5 rounded-xl bg-neutral-800 border border-white/10 text-neutral-400 font-heading text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-not-allowed opacity-80"
+                    >
+                      <span>Arriving Soon</span>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

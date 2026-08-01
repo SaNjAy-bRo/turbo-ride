@@ -25,9 +25,9 @@ export default function QuickBookingModal({
   const handleWhatsAppBooking = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const message = `*NEW TURBORIDE SUPERCAR RESERVATION REQUEST*%0A%0A` +
+    const message = `*NEW TURBORIDE SUPERCAR EXPERIENCE DRIVE REQUEST*%0A%0A` +
       `*Vehicle:* ${activeCar.name}%0A` +
-      `*Daily Rate:* ₹${activeCar.pricePerDay.toLocaleString('en-IN')}/day%0A` +
+      `*Package:* Highway Experience Drive%0A` +
       `*Client Name:* ${customerName || 'Luxury Client'}%0A` +
       `*Phone:* ${customerPhone || 'N/A'}%0A%0A` +
       `_Sent from TurboRide Supercars Official Website_`;
@@ -65,10 +65,10 @@ export default function QuickBookingModal({
             <div className="sticky top-0 z-30 flex items-center justify-between bg-[#101010]/95 backdrop-blur-md border-b border-white/10 px-5 py-4 sm:px-8 sm:py-5 shrink-0">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#FFD000]">
-                  Instant Reservation Concierge
+                  Instant Drive Concierge
                 </span>
                 <h3 className="font-heading text-lg sm:text-2xl font-bold text-white leading-tight">
-                  Reserve Your Supercar
+                  Book Your Drive Experience
                 </h3>
               </div>
               <button

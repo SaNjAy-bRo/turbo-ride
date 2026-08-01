@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { ChevronRight, Flame, Gauge, Zap, Calendar, MapPin, MessageSquare, Volume2, Sparkles, ShieldCheck, Play, Pause, Video } from "lucide-react";
+import { ChevronRight, Flame, Gauge, Zap, Volume2, Sparkles, ShieldCheck, Play, Pause, Video } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { FLEET_DATA } from "@/data/fleet";
@@ -13,7 +13,6 @@ interface HeroSectionProps {
 export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
   const [activeCarId, setActiveCarId] = useState("porsche-718-cayman");
   const [viewMode, setViewMode] = useState<'video' | 'exterior' | 'cockpit'>('video');
-  const [heroDate, setHeroDate] = useState("");
   const [isRevving, setIsRevving] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
 
@@ -163,15 +162,15 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
         <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between text-white">
           <div>
             <span className="text-[10px] font-bold uppercase tracking-widest text-neutral-300">
-              {activeCar.brand} Performance
+              {activeCar.brand} Telemetry
             </span>
             <h3 className="font-heading text-xl font-extrabold">{activeCar.name}</h3>
           </div>
 
           <div className="text-right">
-            <span className="text-[10px] text-neutral-400 block uppercase">Rental Rate</span>
-            <span className="font-heading text-lg font-extrabold" style={{ color: activeCar.brandColor }}>
-              ₹{activeCar.pricePerDay.toLocaleString('en-IN')}<span className="text-xs font-normal text-neutral-400">/day</span>
+            <span className="text-[10px] text-neutral-400 block uppercase">Status</span>
+            <span className="font-heading text-sm font-bold" style={{ color: activeCar.brandColor }}>
+              {activeCar.status === 'available' ? 'Available in Bengaluru' : 'Arriving Soon'}
             </span>
           </div>
         </div>
@@ -201,21 +200,21 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
 
         <div className="p-3 rounded-xl bg-neutral-950/90 border border-white/10">
           <div className="flex items-center justify-center gap-1 text-[10px] text-neutral-400 uppercase font-semibold">
-            <Zap className="w-3.5 h-3.5 text-[#FF2D20]" /> Top Speed
+            <Zap className="w-3.5 h-3.5 text-[#FF2D20]" /> Transmission
           </div>
-          <div className="font-heading text-base font-extrabold text-white mt-1">
-            {activeCar.topSpeed}
+          <div className="font-heading text-base font-extrabold text-white mt-1 text-xs">
+            {activeCar.transmission.split(' ')[0]}
           </div>
-          <div className="text-[9px] text-neutral-500 mt-0.5">Maximum V-max</div>
+          <div className="text-[9px] text-neutral-500 mt-0.5">Gearbox</div>
         </div>
       </div>
 
       {/* Quick Perks */}
       <div className="flex items-center justify-between text-xs text-neutral-400 pt-2 border-t border-white/10">
         <span className="flex items-center gap-1.5 text-emerald-400 font-semibold">
-          <ShieldCheck className="w-4 h-4" /> Insured Handover
+          <ShieldCheck className="w-4 h-4" /> Full Insurance Included
         </span>
-        <span className="text-white font-heading font-medium">150 km/day included</span>
+        <span className="text-white font-heading font-medium">Fuel & Safety Pilot Included</span>
       </div>
     </div>
   );
@@ -277,21 +276,21 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
             {/* Main Headline */}
-            <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.05] drop-shadow-2xl">
-              DRIVE THE <br />
+            <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.05] drop-shadow-2xl uppercase">
+              THE ULTIMATE BENGALURU <br />
               <span
                 className="bg-clip-text text-transparent drop-shadow-2xl"
                 style={{
                   backgroundImage: `linear-gradient(135deg, #FFFFFF 0%, ${activeCar.brandColor} 100%)`,
                 }}
               >
-                EXTRAORDINARY
+                SUPERCAR EXPERIENCE
               </span>
             </h1>
 
             {/* Subheadline */}
-            <p className="font-body text-neutral-300 text-base sm:text-xl max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed drop-shadow-md">
-              Experience world-class supercars on the finest roads of Bangalore. Pure mechanical emotion, laser-sharp PDK dynamics, and white-glove doorstep handover.
+            <p className="font-body text-neutral-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed drop-shadow-md">
+              Step into the cockpit of the world&apos;s most iconic supercars for an unforgettable highway drive experience. Zero rental hassles, pure open-road freedom.
             </p>
 
             {/* Mobile-Only: Telemetry HUD inserted between headline & tabs */}
@@ -329,21 +328,37 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
-              <button
-                onClick={() => onOpenBooking(activeCarId)}
-                className="relative group overflow-hidden rounded-xl p-[1px] font-semibold text-xs sm:text-sm uppercase tracking-widest shadow-2xl"
+              {activeCar.status === 'available' ? (
+                <button
+                  onClick={() => onOpenBooking(activeCar.id)}
+                  className="relative group overflow-hidden rounded-xl p-[1px] font-semibold text-xs sm:text-sm uppercase tracking-widest shadow-2xl"
+                >
+                  <span
+                    className="absolute inset-0 rounded-xl opacity-90 group-hover:opacity-100 transition-opacity"
+                    style={{
+                      backgroundImage: `linear-gradient(90deg, ${activeCar.brandColor}, #FF2D20)`,
+                    }}
+                  />
+                  <span className="relative flex items-center gap-3 px-8 py-4 rounded-[11px] bg-[#050505] text-white group-hover:bg-[#FF2D20] group-hover:text-black transition-all duration-300 font-heading font-bold">
+                    <span>Book Your Drive</span>
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </button>
+              ) : (
+                <button
+                  disabled
+                  className="flex items-center gap-2 px-8 py-4 rounded-xl bg-neutral-800/80 border border-white/15 text-neutral-400 font-heading text-xs sm:text-sm font-bold uppercase tracking-widest cursor-not-allowed opacity-80"
+                >
+                  <span>Coming Soon</span>
+                </button>
+              )}
+
+              <a
+                href="#fleet"
+                className="flex items-center gap-2.5 px-6 py-4 rounded-xl border border-white/20 bg-black/70 hover:bg-white/10 text-white font-heading font-bold text-xs sm:text-sm uppercase tracking-wider transition-all backdrop-blur-xl"
               >
-                <span
-                  className="absolute inset-0 rounded-xl opacity-90 group-hover:opacity-100 transition-opacity"
-                  style={{
-                    backgroundImage: `linear-gradient(90deg, ${activeCar.brandColor}, #FF2D20)`,
-                  }}
-                />
-                <span className="relative flex items-center gap-3 px-8 py-4 rounded-[11px] bg-[#050505] text-white group-hover:bg-[#FF2D20] group-hover:text-black transition-all duration-300 font-heading font-bold">
-                  <span>Reserve {activeCar.name}</span>
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </button>
+                <span>View Fleet</span>
+              </a>
 
               <button
                 onClick={handleRevSound}

@@ -10,22 +10,22 @@ export default function WhyChooseUsSection() {
     {
       icon: <ShieldCheck className="w-6 h-6 text-[#FF2D20]" />,
       title: "100% Insured & Verified Fleet",
-      description: "Every vehicle is covered under comprehensive commercial insurance and undergoes a 50-point technical check before every handover."
+      description: "Every supercar is covered under comprehensive insurance and undergoes a rigorous 50-point safety and mechanical check before every drive session."
     },
     {
       icon: <MapPin className="w-6 h-6 text-[#FFD000]" />,
-      title: "White-Glove Doorstep Delivery",
-      description: "We deliver the supercar directly to your home, office, or luxury hotel anywhere in Bangalore—from UB City to Devanahalli Airport."
+      title: "Expert Safety Pilot Guidance",
+      description: "Drive with complete confidence. Every highway session includes a professional safety pilot providing a thorough briefing and live route guidance."
     },
     {
       icon: <Lock className="w-6 h-6 text-[#FF2D20]" />,
-      title: "Transparent & Fast Security Deposit",
-      description: "No hidden charges. Your security deposit is held securely and refunded directly to your account within 2 to 24 hours post-return."
+      title: "All-Inclusive Experience Pricing",
+      description: "Transparent pricing with zero hidden fees. Your booking covers supercar access, fuel, professional pilot guidance, and 4K media packages."
     },
     {
       icon: <Clock className="w-6 h-6 text-[#FFD000]" />,
-      title: "24/7 Dedicated Supercar Concierge",
-      description: "Our performance specialists remain on standby via WhatsApp and direct hotline for live technical support, route maps, and assistance."
+      title: "24/7 Dedicated Supercar Support",
+      description: "Our performance team is available on WhatsApp and phone to answer queries, help select your supercar package, and coordinate your drive slot seamlessly."
     }
   ];
 
@@ -53,10 +53,10 @@ export default function WhyChooseUsSection() {
             <span>Unmatched Luxury Standards</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight drop-shadow-2xl">
-            WHY EXECUTIVES CHOOSE <span className="text-gradient-red">TURBORIDE</span>
+            WHY ENTHUSIASTS CHOOSE <span className="text-gradient-red">TURBORIDE</span>
           </h2>
           <p className="text-neutral-200 text-sm mt-3 font-light leading-relaxed drop-shadow-lg">
-            We don&apos;t just rent cars; we deliver unforgettable automotive memories crafted with security, speed, and discretion.
+            We don&apos;t just hand over keys; we curate unforgettable supercar highway drive experiences engineered for pure performance, thrill, and safety.
           </p>
         </div>
 
