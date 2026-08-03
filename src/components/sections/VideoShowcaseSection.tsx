@@ -25,7 +25,7 @@ export const INSTAGRAM_REELS: Reel[] = [
     views: "24.2K Views",
     thumbnail: "/images/gallery/cust1.png",
     reelUrl: "https://www.instagram.com/reel/DYr_tf_JMo1/",
-    embedUrl: "https://www.instagram.com/p/DYr_tf_JMo1/embed",
+    embedUrl: "https://www.instagram.com/reel/DYr_tf_JMo1/embed",
     creator: "@TURBORIDE9",
     category: "Porsche 718"
   },
@@ -36,7 +36,7 @@ export const INSTAGRAM_REELS: Reel[] = [
     views: "48.9K Views",
     thumbnail: "/images/gallery/cust3.jpg",
     reelUrl: "https://www.instagram.com/reel/DN7ofKdCckZ/",
-    embedUrl: "https://www.instagram.com/p/DN7ofKdCckZ/embed",
+    embedUrl: "https://www.instagram.com/reel/DN7ofKdCckZ/embed",
     creator: "@TURBORIDE9",
     category: "Porsche 718"
   },
@@ -47,7 +47,7 @@ export const INSTAGRAM_REELS: Reel[] = [
     views: "32.1K Views",
     thumbnail: "/images/gallery/cust5.jpg",
     reelUrl: "https://www.instagram.com/reel/DG8Q509pLQD/",
-    embedUrl: "https://www.instagram.com/p/DG8Q509pLQD/embed",
+    embedUrl: "https://www.instagram.com/reel/DG8Q509pLQD/embed",
     creator: "@TURBORIDE9",
     category: "Porsche 718"
   },
@@ -58,7 +58,7 @@ export const INSTAGRAM_REELS: Reel[] = [
     views: "59.5K Views",
     thumbnail: "/images/gallery/cust7.jpg",
     reelUrl: "https://www.instagram.com/reel/DGkEKHvphoh/",
-    embedUrl: "https://www.instagram.com/p/DGkEKHvphoh/embed",
+    embedUrl: "https://www.instagram.com/reel/DGkEKHvphoh/embed",
     creator: "@TURBORIDE9",
     category: "Porsche 718"
   }
