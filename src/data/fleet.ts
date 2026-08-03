@@ -100,7 +100,7 @@ export const FLEET_DATA: Car[] = [
       "/images/cockpit/lamborghini-cockpit.png",
       "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=1600&q=85"
     ],
-    audioUrl: "/audio/lamborghini-rev.mp3",
+    audioUrl: "/audio/lamborghini-rev.m4a",
     audioFrequency: 240,
     features: [
       "LDVI (Lamborghini Dinamica Veicolo Integrata)",
