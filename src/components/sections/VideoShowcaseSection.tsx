@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Play, Instagram, X, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 
 export interface Reel {
   id: string;
@@ -104,7 +103,7 @@ export default function VideoShowcaseSection() {
           </a>
         </div>
 
-        {/* Video Cards Grid with Official Instagram Covers */}
+        {/* Video Cards Grid with Live Instagram Embed Container */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {INSTAGRAM_REELS.map((video, idx) => (
             <motion.div
@@ -116,14 +115,13 @@ export default function VideoShowcaseSection() {
               onClick={(e) => handleCardClick(e, video)}
               className="glass-card rounded-2xl p-3.5 border border-white/10 flex flex-col justify-between group cursor-pointer relative hover:border-[#FF2D20] transition-all bg-neutral-950"
             >
-              {/* Official Instagram Reel Cover Thumbnail */}
+              {/* Live Instagram Reel Container */}
               <div className="relative h-80 w-full rounded-xl overflow-hidden mb-3 bg-black border border-white/10">
-                <Image
-                  src={video.thumbnail}
-                  alt={video.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  unoptimized
+                <iframe
+                  src={video.embedUrl}
+                  className="w-full h-full border-0 rounded-xl pointer-events-none scale-105"
+                  title={video.title}
+                  loading="lazy"
                 />
 
                 {/* Duration & Category Tag */}
@@ -138,14 +136,10 @@ export default function VideoShowcaseSection() {
                 </div>
 
                 {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center z-10">
-                  <button
-                    type="button"
-                    onClick={(e) => handleCardClick(e, video)}
-                    className="w-14 h-14 rounded-full bg-[#FF2D20] text-black flex items-center justify-center font-bold shadow-xl shadow-[#FF2D20]/40 group-hover:scale-110 transition-transform duration-300"
-                  >
+                <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/30 group-hover:bg-black/10 transition-colors">
+                  <div className="w-14 h-14 rounded-full bg-[#FF2D20] text-black flex items-center justify-center font-bold shadow-xl shadow-[#FF2D20]/40 group-hover:scale-110 transition-transform duration-300">
                     <Play className="w-6 h-6 fill-black translate-x-0.5" />
-                  </button>
+                  </div>
                 </div>
 
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-neutral-300 z-10">
