@@ -92,7 +92,7 @@ export default function LocationSection() {
           <div className="lg:col-span-7 h-[420px] lg:h-auto rounded-3xl overflow-hidden border border-white/20 shadow-2xl relative bg-neutral-900">
             <iframe
               src={embedIframeUrl}
-              className="w-full h-full border-0 filter grayscale contrast-125 invert-[0.9] hue-rotate-180"
+              className="w-full h-full border-0"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
