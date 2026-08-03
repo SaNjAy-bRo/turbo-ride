@@ -1,74 +1,80 @@
 "use client";
 
 import { useState } from "react";
-import { Instagram, X, ExternalLink } from "lucide-react";
+import { Play, Youtube, X, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
-export interface Reel {
+export interface VideoShort {
   id: string;
   title: string;
   duration: string;
   views: string;
+  videoId: string;
   thumbnail: string;
-  reelUrl: string;
+  shortUrl: string;
   embedUrl: string;
   creator: string;
   category: string;
 }
 
-export const INSTAGRAM_REELS: Reel[] = [
+export const YOUTUBE_SHORTS: VideoShort[] = [
   {
-    id: "reel-1",
+    id: "short-1",
     title: "Porsche 718 Cayman • Highway Session",
     duration: "0:45",
-    views: "24.2K Views",
-    thumbnail: "/images/gallery/cust1.png",
-    reelUrl: "https://www.instagram.com/reel/DYr_tf_JMo1/",
-    embedUrl: "https://www.instagram.com/reel/DYr_tf_JMo1/embed",
-    creator: "@TURBORIDE9",
+    views: "28.4K Views",
+    videoId: "8l_qIO3t-h0",
+    thumbnail: "https://img.youtube.com/vi/8l_qIO3t-h0/hqdefault.jpg",
+    shortUrl: "https://youtube.com/shorts/8l_qIO3t-h0",
+    embedUrl: "https://www.youtube.com/embed/8l_qIO3t-h0?autoplay=1&rel=0",
+    creator: "@TURBORIDE",
     category: "Porsche 718"
   },
   {
-    id: "reel-2",
+    id: "short-2",
     title: "Porsche 718 Cayman • Open-Road Run",
     duration: "0:30",
-    views: "48.9K Views",
-    thumbnail: "/images/gallery/cust3.jpg",
-    reelUrl: "https://www.instagram.com/reel/DN7ofKdCckZ/",
-    embedUrl: "https://www.instagram.com/reel/DN7ofKdCckZ/embed",
-    creator: "@TURBORIDE9",
+    views: "52.1K Views",
+    videoId: "xVmYwQ7f5Gw",
+    thumbnail: "https://img.youtube.com/vi/xVmYwQ7f5Gw/hqdefault.jpg",
+    shortUrl: "https://youtube.com/shorts/xVmYwQ7f5Gw",
+    embedUrl: "https://www.youtube.com/embed/xVmYwQ7f5Gw?autoplay=1&rel=0",
+    creator: "@TURBORIDE",
     category: "Porsche 718"
   },
   {
-    id: "reel-3",
+    id: "short-3",
     title: "Porsche 718 Cayman • STRR Expressway",
     duration: "0:35",
-    views: "32.1K Views",
-    thumbnail: "/images/gallery/cust5.jpg",
-    reelUrl: "https://www.instagram.com/reel/DG8Q509pLQD/",
-    embedUrl: "https://www.instagram.com/reel/DG8Q509pLQD/embed",
-    creator: "@TURBORIDE9",
+    views: "36.8K Views",
+    videoId: "oXAP7s6OJKw",
+    thumbnail: "https://img.youtube.com/vi/oXAP7s6OJKw/hqdefault.jpg",
+    shortUrl: "https://youtube.com/shorts/oXAP7s6OJKw",
+    embedUrl: "https://www.youtube.com/embed/oXAP7s6OJKw?autoplay=1&rel=0",
+    creator: "@TURBORIDE",
     category: "Porsche 718"
   },
   {
-    id: "reel-4",
+    id: "short-4",
     title: "Porsche 718 Cayman • Drive Experience",
     duration: "0:55",
-    views: "59.5K Views",
-    thumbnail: "/images/gallery/cust7.jpg",
-    reelUrl: "https://www.instagram.com/reel/DGkEKHvphoh/",
-    embedUrl: "https://www.instagram.com/reel/DGkEKHvphoh/embed",
-    creator: "@TURBORIDE9",
+    views: "64.2K Views",
+    videoId: "D8wZJ_GmNhw",
+    thumbnail: "https://img.youtube.com/vi/D8wZJ_GmNhw/hqdefault.jpg",
+    shortUrl: "https://youtube.com/shorts/D8wZJ_GmNhw",
+    embedUrl: "https://www.youtube.com/embed/D8wZJ_GmNhw?autoplay=1&rel=0",
+    creator: "@TURBORIDE",
     category: "Porsche 718"
   }
 ];
 
 export default function VideoShowcaseSection() {
-  const [activeReel, setActiveReel] = useState<Reel | null>(null);
+  const [activeVideo, setActiveVideo] = useState<VideoShort | null>(null);
 
-  const handleCardClick = (e: React.MouseEvent, video: Reel) => {
+  const handleCardClick = (e: React.MouseEvent, video: VideoShort) => {
     e.preventDefault();
-    setActiveReel(video);
+    setActiveVideo(video);
   };
 
   return (
@@ -81,31 +87,31 @@ export default function VideoShowcaseSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#FFD000] mb-2">
-              <Instagram className="w-3.5 h-3.5 text-[#FF2D20]" />
-              <span>Official Instagram Reels</span>
+              <Youtube className="w-4 h-4 text-[#FF2D20]" />
+              <span>Official YouTube Shorts</span>
             </div>
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight">
-              SUPERCAR <span className="text-gradient-red">REELS & FOOTAGE</span>
+              SUPERCAR <span className="text-gradient-red">SHORTS & FOOTAGE</span>
             </h2>
             <p className="text-neutral-400 text-sm max-w-xl mt-3 leading-relaxed">
-              Watch authentic client drives, exhaust launch controls, and photoshoot reels recorded live on Bangalore roads.
+              Watch authentic client drives, exhaust launch controls, and photoshoot shorts recorded live on Bangalore roads.
             </p>
           </div>
 
           <a
-            href="https://instagram.com/turboride9"
+            href="https://youtube.com/shorts/8l_qIO3t-h0"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-3 rounded-xl bg-neutral-900 border border-white/10 hover:border-[#FF2D20] text-xs font-heading font-bold uppercase tracking-wider text-white transition-all self-start md:self-auto"
           >
-            <Instagram className="w-4 h-4 text-[#FF2D20]" />
-            <span>Follow @TURBORIDE9</span>
+            <Youtube className="w-4 h-4 text-[#FF2D20]" />
+            <span>Subscribe on YouTube</span>
           </a>
         </div>
 
-        {/* Video Cards Grid with Live Instagram Embed Container */}
+        {/* Video Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {INSTAGRAM_REELS.map((video, idx) => (
+          {YOUTUBE_SHORTS.map((video, idx) => (
             <motion.div
               key={video.id}
               initial={{ opacity: 0, y: 20 }}
@@ -115,13 +121,14 @@ export default function VideoShowcaseSection() {
               onClick={(e) => handleCardClick(e, video)}
               className="glass-card rounded-2xl p-3.5 border border-white/10 flex flex-col justify-between group cursor-pointer relative hover:border-[#FF2D20] transition-all bg-neutral-950"
             >
-              {/* Live Instagram Reel Container */}
+              {/* YouTube Shorts High-Res Thumbnail Container */}
               <div className="relative h-80 w-full rounded-xl overflow-hidden mb-3 bg-black border border-white/10">
-                <iframe
-                  src={video.embedUrl}
-                  className="w-full h-full border-0 rounded-xl pointer-events-none scale-105"
-                  title={video.title}
-                  loading="lazy"
+                <Image
+                  src={video.thumbnail}
+                  alt={video.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  unoptimized
                 />
 
                 {/* Duration & Category Tag */}
@@ -135,7 +142,12 @@ export default function VideoShowcaseSection() {
                   {video.duration}
                 </div>
 
-
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/30 group-hover:bg-black/10 transition-colors">
+                  <div className="w-14 h-14 rounded-full bg-[#FF2D20] text-white flex items-center justify-center font-bold shadow-xl shadow-[#FF2D20]/40 group-hover:scale-110 transition-transform duration-300">
+                    <Play className="w-6 h-6 fill-white translate-x-0.5" />
+                  </div>
+                </div>
 
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-neutral-300 z-10">
                   <span className="font-semibold text-white drop-shadow">{video.creator}</span>
@@ -152,13 +164,13 @@ export default function VideoShowcaseSection() {
         </div>
       </div>
 
-      {/* Official Instagram Embedded Modal Player */}
+      {/* Embedded YouTube Shorts Modal Player */}
       <AnimatePresence>
-        {activeReel && (
+        {activeVideo && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl">
             <button
               type="button"
-              onClick={() => setActiveReel(null)}
+              onClick={() => setActiveVideo(null)}
               className="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white z-20 transition-colors shadow-lg"
             >
               <X className="w-6 h-6" />
@@ -170,31 +182,31 @@ export default function VideoShowcaseSection() {
               exit={{ opacity: 0, scale: 0.9 }}
               className="relative w-full max-w-md bg-neutral-950 rounded-3xl overflow-hidden border border-white/20 shadow-2xl flex flex-col items-center p-6 text-center z-30"
             >
-              {/* Instagram Reel Embedded Player */}
+              {/* Embedded YouTube Shorts Iframe */}
               <div className="w-full h-[480px] rounded-2xl overflow-hidden bg-black mb-4 border border-white/10 relative shadow-inner">
                 <iframe
-                  src={activeReel.embedUrl}
+                  src={activeVideo.embedUrl}
                   className="w-full h-full border-0 rounded-2xl"
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  title={activeReel.title}
+                  title={activeVideo.title}
                 />
               </div>
 
               <div className="w-full space-y-3">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="font-heading font-bold text-white">{activeReel.title}</span>
-                  <span className="text-[10px] text-neutral-400 font-mono">{activeReel.views}</span>
+                  <span className="font-heading font-bold text-white">{activeVideo.title}</span>
+                  <span className="text-[10px] text-neutral-400 font-mono">{activeVideo.views}</span>
                 </div>
 
                 <a
-                  href={activeReel.reelUrl}
+                  href={activeVideo.shortUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3 rounded-xl bg-[#FF2D20] hover:bg-[#e02619] text-white font-heading text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md"
                 >
-                  <Instagram className="w-4 h-4" />
-                  <span>Open Full Reel on Instagram</span>
+                  <Youtube className="w-4 h-4" />
+                  <span>Watch Full Short on YouTube</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
