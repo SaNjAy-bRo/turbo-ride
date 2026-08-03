@@ -138,7 +138,7 @@ export const FLEET_DATA: Car[] = [
     gallery: [
       "/images/mustang-gt-exterior.png",
       "/images/cockpit/mustang-cockpit.png",
-      "https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=1600&q=85"
+      "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1600&q=85"
     ],
     audioUrl: "/audio/mustang-rev.mp3",
     audioFrequency: 150,
