@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Play, Instagram, X, ExternalLink } from "lucide-react";
+import { Instagram, X, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export interface Reel {
@@ -135,12 +135,7 @@ export default function VideoShowcaseSection() {
                   {video.duration}
                 </div>
 
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center z-10 bg-black/30 group-hover:bg-black/10 transition-colors">
-                  <div className="w-14 h-14 rounded-full bg-[#FF2D20] text-black flex items-center justify-center font-bold shadow-xl shadow-[#FF2D20]/40 group-hover:scale-110 transition-transform duration-300">
-                    <Play className="w-6 h-6 fill-black translate-x-0.5" />
-                  </div>
-                </div>
+
 
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-neutral-300 z-10">
                   <span className="font-semibold text-white drop-shadow">{video.creator}</span>
