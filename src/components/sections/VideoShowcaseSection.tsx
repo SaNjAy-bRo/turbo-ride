@@ -66,10 +66,17 @@ export const INSTAGRAM_REELS: Reel[] = [
 
 export default function VideoShowcaseSection() {
   const [activeReel, setActiveReel] = useState<Reel | null>(null);
+  const [isPlayingModal, setIsPlayingModal] = useState(false);
 
   const handleCardClick = (e: React.MouseEvent, video: Reel) => {
     e.preventDefault();
     setActiveReel(video);
+    setIsPlayingModal(false);
+  };
+
+  const handleCloseModal = () => {
+    setActiveReel(null);
+    setIsPlayingModal(false);
   };
 
   return (
@@ -169,7 +176,7 @@ export default function VideoShowcaseSection() {
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl">
             <button
               type="button"
-              onClick={() => setActiveReel(null)}
+              onClick={handleCloseModal}
               className="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white z-20 transition-colors shadow-lg"
             >
               <X className="w-6 h-6" />
@@ -181,15 +188,49 @@ export default function VideoShowcaseSection() {
               exit={{ opacity: 0, scale: 0.9 }}
               className="relative w-full max-w-md bg-neutral-950 rounded-3xl overflow-hidden border border-white/20 shadow-2xl flex flex-col items-center p-6 text-center z-30"
             >
-              {/* Instagram Reel Embedded Iframe Player */}
+              {/* Modal Media Container */}
               <div className="w-full h-[480px] rounded-2xl overflow-hidden bg-black mb-4 border border-white/10 relative shadow-inner">
-                <iframe
-                  src={activeReel.embedUrl}
-                  className="w-full h-full border-0 rounded-2xl"
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                  allowFullScreen
-                  title={activeReel.title}
-                />
+                {isPlayingModal ? (
+                  <iframe
+                    src={activeReel.embedUrl}
+                    className="w-full h-full border-0 rounded-2xl"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    allowFullScreen
+                    title={activeReel.title}
+                  />
+                ) : (
+                  <div
+                    onClick={() => setIsPlayingModal(true)}
+                    className="relative w-full h-full cursor-pointer group"
+                  >
+                    <Image
+                      src={activeReel.thumbnail}
+                      alt={activeReel.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      unoptimized
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20" />
+
+                    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-3">
+                      <div className="w-16 h-16 rounded-full bg-[#FF2D20] text-black flex items-center justify-center font-bold shadow-2xl shadow-[#FF2D20]/50 group-hover:scale-110 transition-transform">
+                        <Play className="w-7 h-7 fill-black translate-x-0.5" />
+                      </div>
+                      <span className="text-xs font-heading font-bold uppercase tracking-wider text-white bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+                        Tap to Stream Reel
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-4 left-4 right-4 text-left z-10">
+                      <span className="text-[10px] font-bold text-[#FFD000] uppercase tracking-wider block mb-1">
+                        {activeReel.category} • {activeReel.creator}
+                      </span>
+                      <h4 className="font-heading text-sm font-bold text-white leading-snug">
+                        {activeReel.title}
+                      </h4>
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="w-full space-y-3">
