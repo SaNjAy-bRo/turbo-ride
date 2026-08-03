@@ -16,6 +16,7 @@ import VideoShowcaseSection from "@/components/sections/VideoShowcaseSection";
 import CustomerReviewsSection from "@/components/sections/CustomerReviewsSection";
 import BookingProcessSection from "@/components/sections/BookingProcessSection";
 import RequirementsSection from "@/components/sections/RequirementsSection";
+import LocationSection from "@/components/sections/LocationSection";
 import FAQSection from "@/components/sections/FAQSection";
 import FinalCTASection from "@/components/sections/FinalCTASection";
 import QuickBookingModal from "@/components/ui/QuickBookingModal";
@@ -77,7 +78,10 @@ export default function Home() {
       {/* 11. Rental Requirements & Eligibility Check (Platinum Light Section) */}
       <RequirementsSection />
 
-      {/* 12. FAQ Accordion */}
+      {/* 12. Dobaspet STRR Expressway Google Maps Location Section */}
+      <LocationSection />
+
+      {/* 13. FAQ Accordion */}
       <FAQSection />
 
       {/* 13. Final High-Conversion CTA (Dark Brembo Red Studio) */}

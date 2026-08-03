@@ -95,8 +95,15 @@ export default function Footer({}: FooterProps) {
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-[#FF2D20] shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-white font-semibold">Dobaspet STRR Expressway</div>
-                  <div className="text-[10px] text-neutral-400 mt-0.5">Experience Venue • ~45 mins from Airport / Nagasandra</div>
+                  <a
+                    href="https://share.google/hYC1WSTormHHnemRF"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white font-semibold hover:text-[#FF2D20] transition-colors block"
+                  >
+                    Turboride Experience Zone
+                  </a>
+                  <div className="text-[10px] text-neutral-400 mt-0.5">Dobaspet STRR Expressway • ~45 mins from Airport / Nagasandra</div>
                 </div>
               </div>
 
