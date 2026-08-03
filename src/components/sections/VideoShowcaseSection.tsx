@@ -11,7 +11,6 @@ export interface Reel {
   duration: string;
   views: string;
   thumbnail: string;
-  videoUrl: string;
   reelUrl: string;
   embedUrl: string;
   creator: string;
@@ -25,7 +24,6 @@ export const INSTAGRAM_REELS: Reel[] = [
     duration: "0:45",
     views: "24.2K Views",
     thumbnail: "/images/gallery/cust1.png",
-    videoUrl: "/videos/porsche-hero.mp4",
     reelUrl: "https://www.instagram.com/reel/DYr_tf_JMo1/",
     embedUrl: "https://www.instagram.com/reel/DYr_tf_JMo1/embed",
     creator: "@TURBORIDE9",
@@ -37,7 +35,6 @@ export const INSTAGRAM_REELS: Reel[] = [
     duration: "0:30",
     views: "48.9K Views",
     thumbnail: "/images/gallery/cust3.jpg",
-    videoUrl: "/videos/porsche-hero.mp4",
     reelUrl: "https://www.instagram.com/reel/DN7ofKdCckZ/",
     embedUrl: "https://www.instagram.com/reel/DN7ofKdCckZ/embed",
     creator: "@TURBORIDE9",
@@ -49,7 +46,6 @@ export const INSTAGRAM_REELS: Reel[] = [
     duration: "0:35",
     views: "32.1K Views",
     thumbnail: "/images/gallery/cust5.jpg",
-    videoUrl: "/videos/porsche-hero.mp4",
     reelUrl: "https://www.instagram.com/reel/DG8Q509pLQD/",
     embedUrl: "https://www.instagram.com/reel/DG8Q509pLQD/embed",
     creator: "@TURBORIDE9",
@@ -61,7 +57,6 @@ export const INSTAGRAM_REELS: Reel[] = [
     duration: "0:55",
     views: "59.5K Views",
     thumbnail: "/images/gallery/cust7.jpg",
-    videoUrl: "/videos/porsche-hero.mp4",
     reelUrl: "https://www.instagram.com/reel/DGkEKHvphoh/",
     embedUrl: "https://www.instagram.com/reel/DGkEKHvphoh/embed",
     creator: "@TURBORIDE9",
@@ -109,7 +104,7 @@ export default function VideoShowcaseSection() {
           </a>
         </div>
 
-        {/* Video Cards Grid with Native High-Performance In-App Video Playback */}
+        {/* Video Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {INSTAGRAM_REELS.map((video, idx) => (
             <motion.div
@@ -168,7 +163,7 @@ export default function VideoShowcaseSection() {
         </div>
       </div>
 
-      {/* Native In-App Supercar Video Modal Player */}
+      {/* Instagram Reel Embedded Modal Player */}
       <AnimatePresence>
         {activeReel && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl">
@@ -186,15 +181,14 @@ export default function VideoShowcaseSection() {
               exit={{ opacity: 0, scale: 0.9 }}
               className="relative w-full max-w-md bg-neutral-950 rounded-3xl overflow-hidden border border-white/20 shadow-2xl flex flex-col items-center p-6 text-center z-30"
             >
-              {/* Native In-App HTML5 Supercar Video Player - 100% Native Playback */}
-              <div className="w-full h-[460px] rounded-2xl overflow-hidden bg-black mb-4 border border-white/10 relative shadow-inner">
-                <video
-                  src={activeReel.videoUrl}
-                  poster={activeReel.thumbnail}
-                  controls
-                  autoPlay
-                  playsInline
-                  className="w-full h-full object-cover rounded-2xl"
+              {/* Instagram Reel Embedded Iframe Player */}
+              <div className="w-full h-[480px] rounded-2xl overflow-hidden bg-black mb-4 border border-white/10 relative shadow-inner">
+                <iframe
+                  src={activeReel.embedUrl}
+                  className="w-full h-full border-0 rounded-2xl"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  allowFullScreen
+                  title={activeReel.title}
                 />
               </div>
 
