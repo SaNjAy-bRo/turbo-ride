@@ -9,10 +9,10 @@ import Image from "next/image";
 interface CarDetailModalProps {
   car: Car | null;
   onClose: () => void;
-  onBookCar: (carId: string) => void;
+  onBookCar?: (carId: string) => void;
 }
 
-export default function CarDetailModal({ car, onClose, onBookCar }: CarDetailModalProps) {
+export default function CarDetailModal({ car, onClose }: CarDetailModalProps) {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   if (!car) return null;
@@ -170,17 +170,14 @@ export default function CarDetailModal({ car, onClose, onBookCar }: CarDetailMod
                 {/* Action Buttons */}
                 <div className="pt-4 border-t border-white/10 flex items-center gap-4">
                   {car.status === 'available' ? (
-                    <button
-                      onClick={() => {
-                        onClose();
-                        onBookCar(car.id);
-                      }}
-                      className="flex-1 py-3.5 rounded-xl bg-[#FF2D20] hover:bg-[#e02619] text-white font-heading text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#FF2D20]/20 transition-all"
+                    <a
+                      href="https://turboride.in/ticket/book-now"
+                      className="flex-1 py-3.5 rounded-xl bg-[#FF2D20] hover:bg-[#e02619] text-white font-heading text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#FF2D20]/20 transition-all text-center"
                     >
                       <Calendar className="w-4 h-4" />
                       <span>Book Drive Experience</span>
                       <ChevronRight className="w-4 h-4" />
-                    </button>
+                    </a>
                   ) : (
                     <button
                       disabled

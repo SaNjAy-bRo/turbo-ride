@@ -8,12 +8,11 @@ import Image from "next/image";
 import { FLEET_DATA, Car } from "@/data/fleet";
 
 interface FeaturedFleetSectionProps {
-  onOpenBooking: (carId: string) => void;
+  onOpenBooking?: (carId: string) => void;
   onOpenDetail: (car: Car) => void;
 }
 
 export default function FeaturedFleetSection({
-  onOpenBooking,
   onOpenDetail,
 }: FeaturedFleetSectionProps) {
   const [filter, setFilter] = useState<'all' | 'available' | 'coming-soon'>('all');
@@ -191,13 +190,13 @@ export default function FeaturedFleetSection({
                   </button>
 
                   {car.status === 'available' ? (
-                    <button
-                      onClick={() => onOpenBooking(car.id)}
-                      className="px-4 py-3 rounded-xl bg-[#FF2D20] hover:bg-[#e02619] text-white font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-md shadow-[#FF2D20]/20 transition-all"
+                    <a
+                      href="https://turboride.in/ticket/book-now"
+                      className="px-4 py-3 rounded-xl bg-[#FF2D20] hover:bg-[#e02619] text-white font-heading font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 shadow-md shadow-[#FF2D20]/20 transition-all inline-flex"
                     >
                       <span>Reserve Drive</span>
                       <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
+                    </a>
                   ) : null}
                 </div>
               </div>

@@ -6,10 +6,10 @@ import { CheckSquare, Square, ShieldAlert, CheckCircle2, FileText, UserCheck, Al
 export default function RequirementsSection() {
   const [ageCheck, setAgeCheck] = useState(true);
   const [licenseCheck, setLicenseCheck] = useState(true);
-  const [idCheck, setIdCheck] = useState(true);
-  const [depositCheck, setDepositCheck] = useState(true);
+  const [autoCheck, setAutoCheck] = useState(true);
+  const [guidelinesCheck, setGuidelinesCheck] = useState(true);
 
-  const isEligible = ageCheck && licenseCheck && idCheck && depositCheck;
+  const isEligible = ageCheck && licenseCheck && autoCheck && guidelinesCheck;
 
   return (
     <section className="py-24 bg-white text-neutral-900 relative overflow-hidden border-b border-neutral-200">
@@ -19,13 +19,13 @@ export default function RequirementsSection() {
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-xs font-semibold uppercase tracking-widest text-[#FF2D20]">
               <FileText className="w-3.5 h-3.5" />
-              <span>Rental Requirements</span>
+              <span>DRIVE GUIDELINES</span>
             </div>
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-black tracking-tight">
               DRIVER ELIGIBILITY <span className="text-[#FF2D20]">& TERMS</span>
             </h2>
             <p className="text-neutral-600 text-sm font-normal leading-relaxed">
-              We uphold rigorous safety standards to protect both our clients and our exotic vehicle fleet. Ensure you meet the following four core criteria prior to handover.
+              We uphold rigorous safety standards to protect both our drivers and our supercar fleet. Ensure you meet the core criteria below before taking the wheel.
             </p>
 
             <div className="space-y-4 pt-2">
@@ -33,23 +33,23 @@ export default function RequirementsSection() {
                 <UserCheck className="w-5 h-5 text-[#FF2D20] shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-heading text-sm font-bold text-black">Minimum Driving Age: 21 Years</h4>
-                  <p className="text-neutral-600 text-xs mt-1">Drivers aged 21-23 receive a brief technical orientation from our instructor.</p>
+                  <p className="text-neutral-600 text-xs mt-1">Drivers aged 21 and above receive a comprehensive briefing from our safety pilot before the drive.</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 p-4 rounded-xl bg-neutral-50 border border-neutral-200">
                 <FileText className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-heading text-sm font-bold text-black">Valid Indian LMV Driving License or IDP</h4>
-                  <p className="text-neutral-600 text-xs mt-1">Must have been held for at least 2 full years without major infractions.</p>
+                  <h4 className="font-heading text-sm font-bold text-black">Valid Driving License Required</h4>
+                  <p className="text-neutral-600 text-xs mt-1">Must present an original Indian LMV Driving License or International Driving Permit (IDP) physically at the venue.</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4 p-4 rounded-xl bg-neutral-50 border border-neutral-200">
                 <ShieldAlert className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-heading text-sm font-bold text-black">Refundable Security Deposit</h4>
-                  <p className="text-neutral-600 text-xs mt-1">Held securely and refunded within 2 to 24 hours post vehicle inspection.</p>
+                  <h4 className="font-heading text-sm font-bold text-black">Zero Security Deposit</h4>
+                  <p className="text-neutral-600 text-xs mt-1">No security deposits held. Transparent pricing with zero hidden charges or post-drive holds.</p>
                 </div>
               </div>
             </div>
@@ -84,30 +84,30 @@ export default function RequirementsSection() {
                     licenseCheck ? "bg-red-50/80 border-[#FF2D20] text-black" : "bg-white border-neutral-300 text-neutral-600"
                   }`}
                 >
-                  <span className="text-xs font-semibold">2. I hold a valid LMV Driving License (2+ years)</span>
+                  <span className="text-xs font-semibold">2. I hold a valid LMV Driving License or IDP</span>
                   {licenseCheck ? <CheckSquare className="w-5 h-5 text-[#FF2D20]" /> : <Square className="w-5 h-5 text-neutral-400" />}
                 </button>
 
                 <button
                   type="button"
-                  onClick={() => setIdCheck(!idCheck)}
+                  onClick={() => setAutoCheck(!autoCheck)}
                   className={`w-full p-4 rounded-xl border flex items-center justify-between text-left transition-all ${
-                    idCheck ? "bg-red-50/80 border-[#FF2D20] text-black" : "bg-white border-neutral-300 text-neutral-600"
+                    autoCheck ? "bg-red-50/80 border-[#FF2D20] text-black" : "bg-white border-neutral-300 text-neutral-600"
                   }`}
                 >
-                  <span className="text-xs font-semibold">3. I have Aadhaar Card / Passport for ID Verification</span>
-                  {idCheck ? <CheckSquare className="w-5 h-5 text-[#FF2D20]" /> : <Square className="w-5 h-5 text-neutral-400" />}
+                  <span className="text-xs font-semibold">3. I know how to drive an automatic transmission car</span>
+                  {autoCheck ? <CheckSquare className="w-5 h-5 text-[#FF2D20]" /> : <Square className="w-5 h-5 text-neutral-400" />}
                 </button>
 
                 <button
                   type="button"
-                  onClick={() => setDepositCheck(!depositCheck)}
+                  onClick={() => setGuidelinesCheck(!guidelinesCheck)}
                   className={`w-full p-4 rounded-xl border flex items-center justify-between text-left transition-all ${
-                    depositCheck ? "bg-red-50/80 border-[#FF2D20] text-black" : "bg-white border-neutral-300 text-neutral-600"
+                    guidelinesCheck ? "bg-red-50/80 border-[#FF2D20] text-black" : "bg-white border-neutral-300 text-neutral-600"
                   }`}
                 >
-                  <span className="text-xs font-semibold">4. I agree to the refundable security deposit terms</span>
-                  {depositCheck ? <CheckSquare className="w-5 h-5 text-[#FF2D20]" /> : <Square className="w-5 h-5 text-neutral-400" />}
+                  <span className="text-xs font-semibold">4. I agree to follow safety pilot instructions & drive guidelines</span>
+                  {guidelinesCheck ? <CheckSquare className="w-5 h-5 text-[#FF2D20]" /> : <Square className="w-5 h-5 text-neutral-400" />}
                 </button>
               </div>
 
@@ -123,8 +123,8 @@ export default function RequirementsSection() {
                   <>
                     <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0" />
                     <div>
-                      <h4 className="font-heading text-sm font-bold">100% Eligible for Self-Drive</h4>
-                      <p className="text-[11px] text-emerald-700">You meet all Bangalore supercar rental criteria.</p>
+                      <h4 className="font-heading text-sm font-bold">100% Eligible for Supercar Drive</h4>
+                      <p className="text-[11px] text-emerald-700">You meet all TurboRide supercar experience criteria!</p>
                     </div>
                   </>
                 ) : (
@@ -132,7 +132,7 @@ export default function RequirementsSection() {
                     <AlertCircle className="w-6 h-6 text-amber-600 shrink-0" />
                     <div>
                       <h4 className="font-heading text-sm font-bold">Eligibility Pending</h4>
-                      <p className="text-[11px] text-amber-700">Check all criteria boxes above or choose our Ride-Along package.</p>
+                      <p className="text-[11px] text-amber-700">Please check all criteria boxes above to confirm your eligibility.</p>
                     </div>
                   </>
                 )}

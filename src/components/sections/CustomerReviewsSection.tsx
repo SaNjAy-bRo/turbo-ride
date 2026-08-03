@@ -16,10 +16,10 @@ export default function CustomerReviewsSection() {
             <span>4.9 Star Rating • Verified Testimonials</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-5xl font-black text-black tracking-tight">
-            CLIENT <span className="text-[#FF2D20]">STORIES</span>
+            REAL DRIVER <span className="text-[#FF2D20]">EXPERIENCES</span>
           </h2>
           <p className="text-neutral-600 text-sm mt-3 font-normal">
-            Read what tech founders, wedding couples, and automotive creators say about their experience driving with TurboRide.
+            Unfiltered reviews from real drivers who turned their supercar dreams into open-road reality.
           </p>
         </div>
 

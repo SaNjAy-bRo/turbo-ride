@@ -20,47 +20,47 @@ export interface Reel {
 export const INSTAGRAM_REELS: Reel[] = [
   {
     id: "reel-1",
-    title: "Porsche 718 Cayman • Nandi Hills Highway Drive",
+    title: "Porsche 718 Cayman • Highway Session",
     duration: "0:45",
     views: "24.2K Views",
     thumbnail: "/images/reels/reel-1.jpg",
-    reelUrl: "https://www.instagram.com/reel/DYsA3SpJJ-a/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    embedUrl: "https://www.instagram.com/reel/DYsA3SpJJ-a/embed",
-    creator: "@turboride_supercars",
+    reelUrl: "https://www.instagram.com/reel/DYr_tf_JMo1/",
+    embedUrl: "https://www.instagram.com/reel/DYr_tf_JMo1/embed",
+    creator: "@TURBORIDE9",
     category: "Porsche 718"
   },
   {
     id: "reel-2",
-    title: "Lamborghini Huracán EVO • V10 Exhaust Sound",
+    title: "Porsche 718 Cayman • Open-Road Run",
     duration: "0:30",
     views: "48.9K Views",
     thumbnail: "/images/reels/reel-2.jpg",
-    reelUrl: "https://www.instagram.com/reel/DULaalziWyk/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    embedUrl: "https://www.instagram.com/reel/DULaalziWyk/embed",
-    creator: "@turboride_supercars",
-    category: "Lamborghini"
+    reelUrl: "https://www.instagram.com/reel/DN7ofKdCckZ",
+    embedUrl: "https://www.instagram.com/reel/DN7ofKdCckZ/embed",
+    creator: "@TURBORIDE9",
+    category: "Porsche 718"
   },
   {
     id: "reel-3",
-    title: "Ford Mustang GT 5.0 V8 • Pure Muscle Run",
+    title: "Porsche 718 Cayman • STRR Expressway",
     duration: "0:35",
     views: "32.1K Views",
     thumbnail: "/images/reels/reel-3.jpg",
-    reelUrl: "https://www.instagram.com/reel/DT72gpqibH1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    embedUrl: "https://www.instagram.com/reel/DT72gpqibH1/embed",
-    creator: "@turboride_supercars",
-    category: "Mustang GT"
+    reelUrl: "https://www.instagram.com/reel/DG8Q509pLQD",
+    embedUrl: "https://www.instagram.com/reel/DG8Q509pLQD/embed",
+    creator: "@TURBORIDE9",
+    category: "Porsche 718"
   },
   {
     id: "reel-4",
-    title: "Ferrari F8 Tributo • Maranello VIP Launch",
+    title: "Porsche 718 Cayman • Drive Experience",
     duration: "0:55",
     views: "59.5K Views",
     thumbnail: "/images/reels/reel-4.jpg",
-    reelUrl: "https://www.instagram.com/reel/DRXhIG2Ezvh/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-    embedUrl: "https://www.instagram.com/reel/DRXhIG2Ezvh/embed",
-    creator: "@turboride_supercars",
-    category: "Ferrari F8"
+    reelUrl: "https://www.instagram.com/reel/DGkEKHvphoh/",
+    embedUrl: "https://www.instagram.com/reel/DGkEKHvphoh/embed",
+    creator: "@TURBORIDE9",
+    category: "Porsche 718"
   }
 ];
 
@@ -89,13 +89,13 @@ export default function VideoShowcaseSection() {
           </div>
 
           <a
-            href="https://instagram.com/turboride_supercars"
+            href="https://instagram.com/turboride9"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-5 py-3 rounded-xl bg-neutral-900 border border-white/10 hover:border-[#FF2D20] text-xs font-heading font-bold uppercase tracking-wider text-white transition-all self-start md:self-auto"
           >
             <Instagram className="w-4 h-4 text-[#FF2D20]" />
-            <span>Follow @turboride_supercars</span>
+            <span>Follow @TURBORIDE9</span>
           </a>
         </div>
 

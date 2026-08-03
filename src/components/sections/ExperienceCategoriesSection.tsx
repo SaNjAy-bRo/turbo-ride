@@ -6,10 +6,10 @@ import Image from "next/image";
 import { EXPERIENCES_DATA } from "@/data/experiences";
 
 interface ExperienceCategoriesSectionProps {
-  onOpenBooking: () => void;
+  onOpenBooking?: () => void;
 }
 
-export default function ExperienceCategoriesSection({ onOpenBooking }: ExperienceCategoriesSectionProps) {
+export default function ExperienceCategoriesSection({}: ExperienceCategoriesSectionProps) {
   const iconMap: Record<string, React.ReactNode> = {
     Key: <Key className="w-5 h-5 text-[#FF2D20]" />,
     Flame: <Flame className="w-5 h-5 text-amber-600" />,
@@ -94,13 +94,22 @@ export default function ExperienceCategoriesSection({ onOpenBooking }: Experienc
 
               {/* Action Trigger */}
               <div className="pt-6 mt-6 border-t border-neutral-200">
-                <button
-                  onClick={onOpenBooking}
-                  className="w-full py-3 rounded-xl bg-black hover:bg-[#FF2D20] text-white font-heading text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 shadow-md"
-                >
-                  <span>Book {exp.title.split(' ')[0]}</span>
-                  <ChevronRight className="w-4 h-4" />
-                </button>
+                {idx === 0 ? (
+                  <a
+                    href="https://turboride.in/ticket/book-now"
+                    className="w-full py-3 rounded-xl bg-black hover:bg-[#FF2D20] text-white font-heading text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 shadow-md"
+                  >
+                    <span>BOOK HIGHWAY DRIVE</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </a>
+                ) : (
+                  <button
+                    disabled
+                    className="w-full py-3 rounded-xl bg-neutral-300 text-neutral-600 font-heading text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-not-allowed opacity-80"
+                  >
+                    <span>COMING SOON</span>
+                  </button>
+                )}
               </div>
             </motion.div>
           ))}

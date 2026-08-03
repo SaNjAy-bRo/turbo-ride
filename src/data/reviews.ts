@@ -15,61 +15,61 @@ export interface Review {
 export const REVIEWS_DATA: Review[] = [
   {
     id: "rev-1",
-    name: "Vikramaditya Rao",
-    role: "Tech Founder & Angel Investor",
-    location: "Indiranagar, Bangalore",
+    name: "Tony Paulson Chungath",
+    role: "Local Guide",
+    location: "Bengaluru",
     vehicleDriven: "Porsche 718 Cayman",
     rating: 5,
-    date: "July 2026",
-    comment: "Rented the Porsche 718 Cayman for my 30th birthday drive to Nandi Hills. The condition of the car was pristine—clean engine response, zero mechanical glitches, and the delivery was right on time at my residence. TurboRide is hands down the gold standard for supercar rentals in India.",
+    date: "2 months ago",
+    comment: "We had an amazing experience here with the one and only Porsche 718 Caymen. It was a surprise for my best friend and he loved the driving. The car was in top notch condition with proper instructions and support provided by the Turbo ride team. We even got the reels done through their team and spend a great time with friends. Will recommend everyone to experience this car at least once with Turboride.",
     verifiedSource: "Google Verified",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
-    highlightBadge: "Verified Porsche Self Drive"
+    avatar: "/images/gallery/tony paul.png",
+    highlightBadge: "HIGHWAY DRIVE EXPERIENCE"
   },
   {
     id: "rev-2",
-    name: "Ananya & Rohan Deshmukh",
-    role: "Wedding Clients",
-    location: "UB City, Bangalore",
+    name: "Gayathri R",
+    role: "Verified Customer",
+    location: "Bengaluru",
     vehicleDriven: "Porsche 718 Cayman",
     rating: 5,
-    date: "June 2026",
-    comment: "We booked the Porsche for Rohan's entry at our wedding reception in Leela Palace. The engine roar, the polished coat under venue lights, and the seamless coordination by the TurboRide team made our entry look straight out of a movie!",
-    verifiedSource: "Instagram Verified",
-    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80",
-    highlightBadge: "Wedding Entry Customer"
+    date: "2 months ago",
+    comment: "I had booked the Turboride Porsche driving experience for my husband as a birthday gift, and it turned out to be an amazing experience. Everything was very smooth right from the booking process to the actual drive. He absolutely enjoyed driving the Porsche, and the whole experience was well organized and memorable. Highly recommended for anyone looking for a unique gift or driving experience!",
+    verifiedSource: "Google Verified",
+    avatar: "/images/gallery/gayathri r.png",
+    highlightBadge: "BIRTHDAY GIFT DRIVE"
   },
   {
     id: "rev-3",
-    name: "Siddharth Nair",
-    role: "Automotive Creator & Vlogger",
-    location: "Koramangala, Bangalore",
+    name: "Ganesh Raghav",
+    role: "Local Guide",
+    location: "Bengaluru",
     vehicleDriven: "Porsche 718 Cayman",
     rating: 5,
-    date: "May 2026",
-    comment: "I've shot with luxury rental companies across Dubai and Europe, and TurboRide matches that exact international level. Professional paperwork, transparent security deposit refund within 2 hours, and top-tier vehicle upkeep.",
+    date: "3 months ago",
+    comment: "I had the most incredible birthday surprise thanks to Turbo Ride! I got to drive a Porsche Cayman 718, and honestly, it was a dream come true. Everything was perfectly arranged Mr. Prashanth was super professional, friendly, and made sure I was comfortable before hitting the road. The car itself was in top condition, and the whole experience felt premium and seamless. It’s not every day you get to live a moment like this, and it truly made my birthday unforgettable. Huge thanks to Turbo Ride for making it so special. Highly recommend this to anyone looking for a unique and thrilling experience!",
     verifiedSource: "Google Verified",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
-    highlightBadge: "4K YouTube Shoot"
+    avatar: "/images/gallery/ganesh raghav.png",
+    highlightBadge: "BIRTHDAY HIGHWAY DRIVE"
   },
   {
     id: "rev-4",
-    name: "Karan Johar",
-    role: "Managing Director",
-    location: "Sadashivanagar, Bangalore",
+    name: "Shenoy Rahul",
+    role: "Verified Driver",
+    location: "Bengaluru",
     vehicleDriven: "Porsche 718 Cayman",
     rating: 5,
-    date: "April 2026",
-    comment: "Hosted an executive client retreat and booked the Ride Along and Weekend drive package. Everything from white-glove delivery to 24/7 concierge was executed flawlessly. Highly recommended.",
-    verifiedSource: "VIP Customer",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80",
-    highlightBadge: "Corporate VIP Client"
+    date: "5 months ago",
+    comment: "It was an amazing experience to witness the joy of driving the super car ! Must try and especially dont forget to capture your experience!! Prashant was an amazing gentleman who explained in detail about the car and its features and assisted throughout",
+    verifiedSource: "Google Verified",
+    avatar: "/images/gallery/shenoy.png",
+    highlightBadge: "SUPERCAR EXPERIENCE"
   }
 ];
 
 export const TRUST_STATS = [
   { label: "Drives Completed", value: "500+", description: "Flawlessly executed highway drive experiences in Bengaluru" },
-  { label: "Google & Social Rating", value: "4.9 ★", description: "Based on 105+ verified client testimonials" },
+  { label: "Google & Social Rating", value: "5.0 ★", description: "Based on verified client testimonials" },
   { label: "Insured Fleet Coverage", value: "100%", description: "Full insurance coverage for peace of mind" },
   { label: "Response Time", value: "< 15m", description: "Dedicated drive booking support via WhatsApp & phone" },
 ];

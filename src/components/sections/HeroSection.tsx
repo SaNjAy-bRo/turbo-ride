@@ -7,10 +7,10 @@ import Image from "next/image";
 import { FLEET_DATA } from "@/data/fleet";
 
 interface HeroSectionProps {
-  onOpenBooking: (carId?: string) => void;
+  onOpenBooking?: (carId?: string) => void;
 }
 
-export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
+export default function HeroSection({}: HeroSectionProps) {
   const [activeCarId, setActiveCarId] = useState("porsche-718-cayman");
   const [viewMode, setViewMode] = useState<'video' | 'exterior' | 'cockpit'>('video');
   const [isRevving, setIsRevving] = useState(false);
@@ -329,9 +329,9 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
               {activeCar.status === 'available' ? (
-                <button
-                  onClick={() => onOpenBooking(activeCar.id)}
-                  className="relative group overflow-hidden rounded-xl p-[1px] font-semibold text-xs sm:text-sm uppercase tracking-widest shadow-2xl"
+                <a
+                  href="https://turboride.in/ticket/book-now"
+                  className="relative group overflow-hidden rounded-xl p-[1px] font-semibold text-xs sm:text-sm uppercase tracking-widest shadow-2xl inline-block"
                 >
                   <span
                     className="absolute inset-0 rounded-xl opacity-90 group-hover:opacity-100 transition-opacity"
@@ -343,7 +343,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
                     <span>Book Your Drive</span>
                     <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
-                </button>
+                </a>
               ) : (
                 <button
                   disabled

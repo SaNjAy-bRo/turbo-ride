@@ -5,34 +5,34 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface BookingProcessSectionProps {
-  onOpenBooking: () => void;
+  onOpenBooking?: () => void;
 }
 
-export default function BookingProcessSection({ onOpenBooking }: BookingProcessSectionProps) {
+export default function BookingProcessSection({}: BookingProcessSectionProps) {
   const steps = [
     {
       num: "01",
       icon: <Car className="w-6 h-6 text-[#FF2D20]" />,
-      title: "Choose Your Vehicle",
-      description: "Browse our active fleet including the Porsche 718 Cayman, or pre-book upcoming V10 & V8 models."
+      title: "Choose Your Supercar",
+      description: "Select your machine from our fleet, including the Porsche 718 Cayman, or pre-book upcoming V10 & V8 models."
     },
     {
       num: "02",
       icon: <Calendar className="w-6 h-6 text-[#FFD000]" />,
-      title: "Select Experience & Date",
-      description: "Pick your preferred booking window (4 hours photoshoot, 24-hour self-drive, or multi-day road trip)."
+      title: "Select Laps & Slot",
+      description: "Choose your preferred date, select a convenient time slot, and pick how many laps or highway runs you want to drive."
     },
     {
       num: "03",
       icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />,
-      title: "Fast Verification",
-      description: "Submit valid Driving License and address proof online. Instant verification in under 15 minutes."
+      title: "Flexible Payment",
+      description: "Pay a ₹1,000 slot reservation fee and settle the balance at the venue, or pay in full online to get an instant 15% discount!"
     },
     {
       num: "04",
       icon: <Key className="w-6 h-6 text-[#FF2D20]" />,
-      title: "Engine Handover",
-      description: "White-glove delivery at your doorstep or UB City hub. Complete cockpit briefing and hit the road!"
+      title: "Briefing & Highway Run",
+      description: "Arrive at the drive location, receive a complete cockpit briefing from your safety pilot, and take the wheel on the open highway!"
     }
   ];
 
@@ -62,7 +62,7 @@ export default function BookingProcessSection({ onOpenBooking }: BookingProcessS
             4 STEPS TO <span className="text-gradient-red">THE COCKPIT</span>
           </h2>
           <p className="text-neutral-300 text-sm mt-3 font-light leading-relaxed drop-shadow">
-            Designed for busy executives and supercar purists. Zero paper friction, 100% digital speed.
+            Engineered for supercar purists and thrill-seekers. Zero paperwork friction, 100% digital speed.
           </p>
         </div>
 
@@ -104,13 +104,13 @@ export default function BookingProcessSection({ onOpenBooking }: BookingProcessS
 
         {/* Call to action bar */}
         <div className="mt-12 text-center">
-          <button
-            onClick={onOpenBooking}
-            className="px-8 py-4 rounded-xl bg-[#FF2D20] hover:bg-[#e02619] text-black font-heading text-xs font-bold uppercase tracking-wider shadow-xl shadow-[#FF2D20]/25 transition-all inline-flex items-center gap-2"
+          <a
+            href="https://turboride.in/ticket/book-now"
+            className="px-8 py-4 rounded-xl bg-[#FF2D20] hover:bg-[#e02619] text-white font-heading text-xs font-bold uppercase tracking-wider shadow-xl shadow-[#FF2D20]/25 transition-all inline-flex items-center gap-2"
           >
-            <span>Start Reservation Now</span>
+            <span>BOOK YOUR DRIVE NOW</span>
             <ChevronRight className="w-4 h-4" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

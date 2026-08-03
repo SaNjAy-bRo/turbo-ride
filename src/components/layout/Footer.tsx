@@ -1,6 +1,5 @@
-import { Shield, MapPin, Instagram } from "lucide-react";
+import { Shield, Instagram, MapPin, Phone, Mail } from "lucide-react";
 import Image from "next/image";
-import { BANGALORE_LOCATIONS } from "@/data/locations";
 
 interface FooterProps {
   onOpenBooking?: () => void;
@@ -33,13 +32,13 @@ export default function Footer({}: FooterProps) {
 
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://instagram.com/turboride_supercars"
+                href="https://instagram.com/turboride9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-900 border border-white/10 hover:border-[#FF2D20]/50 hover:bg-[#FF2D20]/10 text-xs font-semibold text-neutral-300 hover:text-white transition-all"
               >
                 <Instagram className="w-4 h-4 text-[#FF2D20]" />
-                <span>@turboride_supercars</span>
+                <span>@turboride9</span>
               </a>
 
               <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-xs font-medium text-emerald-400">
@@ -73,50 +72,64 @@ export default function Footer({}: FooterProps) {
             </ul>
           </div>
 
-          {/* Column 3: Services */}
+          {/* Column 3: Drive Offerings */}
           <div className="space-y-4">
             <h4 className="font-heading text-sm font-bold uppercase tracking-widest text-[#FFD000]">
-              Drive Offerings
+              DRIVE OFFERINGS
             </h4>
             <ul className="space-y-2.5 text-xs text-neutral-400 font-medium">
-              <li><a href="#experiences" className="hover:text-white transition-colors">Highway Drive Sessions</a></li>
+              <li><a href="#experiences" className="hover:text-white transition-colors">15 KM / 30 KM Highway Drives</a></li>
               <li><a href="#experiences" className="hover:text-white transition-colors">Safety Pilot Briefings</a></li>
               <li><a href="#experiences" className="hover:text-white transition-colors">4K Photoshoots & Reels</a></li>
-              <li><a href="#why-us" className="hover:text-white transition-colors">Safety Guidelines</a></li>
+              <li><a href="#why-us" className="hover:text-white transition-colors">Driver Eligibility & Guidelines</a></li>
               <li><a href="#faq" className="hover:text-white transition-colors">Support & FAQs</a></li>
             </ul>
           </div>
 
-          {/* Column 4: Bangalore Locations */}
+          {/* Column 4: Location & Contact */}
           <div className="space-y-4">
             <h4 className="font-heading text-sm font-bold uppercase tracking-widest text-[#FFD000]">
-              Bengaluru Zones
+              VENUE & CONTACT
             </h4>
-            <div className="space-y-2 text-xs text-neutral-400">
-              {BANGALORE_LOCATIONS.map((loc) => (
-                <div key={loc.name} className="flex items-start gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#FF2D20] shrink-0 mt-0.5" />
-                  <div>
-                    <div className="text-white font-medium">{loc.name}</div>
-                    <div className="text-[10px] text-neutral-500">{loc.type}</div>
-                  </div>
+            <div className="space-y-3 text-xs text-neutral-400">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-[#FF2D20] shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-white font-semibold">Dobaspet STRR Expressway</div>
+                  <div className="text-[10px] text-neutral-400 mt-0.5">Experience Venue • ~45 mins from Airport / Nagasandra</div>
                 </div>
-              ))}
+              </div>
+
+              <div className="flex items-start gap-2">
+                <Phone className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <a href="tel:+916363935011" className="text-white font-semibold hover:text-[#FF2D20] transition-colors">+91 63639 35011</a>
+                  <div className="text-[10px] text-neutral-400 mt-0.5">Call / WhatsApp (8:00 AM – 8:00 PM)</div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-2">
+                <Mail className="w-4 h-4 text-[#FFD000] shrink-0 mt-0.5" />
+                <div>
+                  <a href="mailto:hello@turboride.in" className="text-white font-semibold hover:text-[#FF2D20] transition-colors">hello@turboride.in</a>
+                  <div className="text-[10px] text-neutral-400 mt-0.5">Official Desk & Media Inquiries</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom copyright */}
+        {/* Bottom copyright & navigation */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
           <div className="flex items-center gap-2">
-            <span>© {new Date().getFullYear()} TurboRide Supercars Bengaluru. All rights reserved.</span>
+            <span>© 2026 TurboRide Supercars Bengaluru. All rights reserved.</span>
           </div>
 
-          <div className="flex items-center gap-6 text-neutral-400">
-            <a href="#fleet" className="hover:text-white transition-colors">Book Drive</a>
+          <div className="flex items-center gap-6 text-neutral-400 font-medium">
+            <a href="https://turboride.in/ticket/book-now" className="hover:text-[#FF2D20] transition-colors">Book Drive</a>
             <a href="#fleet" className="hover:text-white transition-colors">Supercar Fleet</a>
-            <a href="#why-us" className="hover:text-white transition-colors">Safety Guidelines</a>
-            <a href="#faq" className="hover:text-white transition-colors">Support</a>
+            <a href="#why-us" className="hover:text-white transition-colors">Eligibility & Safety</a>
+            <a href="#faq" className="hover:text-white transition-colors">Support & FAQs</a>
           </div>
         </div>
       </div>

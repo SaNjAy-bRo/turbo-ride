@@ -10,34 +10,58 @@ export default function LuxuryShowcaseSection() {
 
   const galleryImages = [
     {
-      src: "/images/porsche-yellow.png",
-      caption: "Porsche 718 Cayman Racing Yellow Studio Setup",
-      tag: "Racing Yellow"
+      src: "/images/gallery/cust1.png",
+      fallback: "/images/porsche-yellow.png",
+      caption: "Porsche 718 Cayman • Sunset Highway Stance",
+      tag: "GOLDEN HOUR"
     },
     {
-      src: "/images/cockpit/porsche-cockpit.png",
-      caption: "Porsche 718 Sport Chrono Cockpit Interior",
-      tag: "Cockpit Interior"
+      src: "/images/gallery/cust2.jpg",
+      fallback: "/images/cockpit/porsche-cockpit.png",
+      caption: "Porsche 718 Cayman • Open-Road Elegance",
+      tag: "MEMBER MOMENTS"
     },
     {
-      src: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1600&q=85",
-      caption: "Lamborghini Huracán EVO Verde Mantis V10",
-      tag: "V10 Emotion"
+      src: "/images/gallery/cust3.jpg",
+      fallback: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1600&q=85",
+      caption: "Rule The Road • Porsche 718 Cayman Experience",
+      tag: "HIGHWAY DRIVE"
     },
     {
-      src: "/images/cockpit/lamborghini-cockpit.png",
-      caption: "Lamborghini Huracán Anima Cockpit & Forged Composites",
-      tag: "Supercar Cockpit"
+      src: "/images/gallery/cust4.jpg",
+      fallback: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=85",
+      caption: "Porsche 718 Cayman • Rear Profile & Stance",
+      tag: "DRIVER JOY"
     },
     {
-      src: "/images/mustang-gt-exterior.png",
-      caption: "Ford Mustang GT 5.0 Coyote V8 Shadow Black",
-      tag: "V8 Power"
+      src: "/images/gallery/cust5.jpg",
+      fallback: "/images/porsche-yellow.png",
+      caption: "Highway Walkaround • Porsche 718 Cayman",
+      tag: "HIGHWAY RUN"
     },
     {
-      src: "/images/cockpit/mustang-cockpit.png",
-      caption: "Ford Mustang GT 12-inch Digital LCD Cockpit",
-      tag: "Track Apps"
+      src: "/images/gallery/cust6.jpg",
+      fallback: "/images/cockpit/porsche-cockpit.png",
+      caption: "Porsche Passion • 718 Cayman Highway Run",
+      tag: "ENTHUSIAST VIBES"
+    },
+    {
+      src: "/images/gallery/cust7.jpg",
+      fallback: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1600&q=85",
+      caption: "Porsche 718 Cayman • Highway Profile",
+      tag: "CINEMATIC SHOT"
+    },
+    {
+      src: "/images/gallery/cust8.jpg",
+      fallback: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=85",
+      caption: "Special Memory Drive • Porsche 718 Cayman",
+      tag: "COUPLE GOALS"
+    },
+    {
+      src: "/images/gallery/cust9.png",
+      fallback: "/images/porsche-yellow.png",
+      caption: "Unforgettable Supercar Moment • Porsche 718",
+      tag: "SPECIAL MOMENTS"
     }
   ];
 
@@ -51,17 +75,17 @@ export default function LuxuryShowcaseSection() {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill border border-[#FF2D20]/30 text-xs font-semibold uppercase tracking-widest text-[#FFD000] mb-3">
             <Camera className="w-3.5 h-3.5 text-[#FF2D20]" />
-            <span>Cinematic Portfolio</span>
+            <span>DRIVER GALLERY</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight">
-            THE ART OF <span className="text-gradient-red">PERFORMANCE</span>
+            MEMORIES FROM <span className="text-gradient-red">THE COCKPIT</span>
           </h2>
-          <p className="text-neutral-400 text-sm mt-3 font-light">
-            Every curve, carbon fiber weave, and exhaust note of our Bangalore supercar fleet captured in high definition.
+          <p className="text-neutral-400 text-sm mt-3 font-light leading-relaxed">
+            Take a look at our members and guests capturing their highway drive moments in the Porsche 718 Cayman.
           </p>
         </div>
 
-        {/* 6 Grid Gallery */}
+        {/* 9 Grid Gallery */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryImages.map((img, idx) => (
             <motion.div
@@ -69,7 +93,7 @@ export default function LuxuryShowcaseSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              transition={{ duration: 0.5, delay: idx * 0.06 }}
               onClick={() => setActiveLightbox(img.src)}
               className="relative h-72 rounded-2xl overflow-hidden border border-white/10 bg-neutral-900 group cursor-pointer"
             >
@@ -78,6 +102,13 @@ export default function LuxuryShowcaseSection() {
                 alt={img.caption}
                 fill
                 className="object-cover group-hover:scale-108 transition-transform duration-700"
+                onError={(e) => {
+                  // Fallback image handling
+                  const target = e.target as HTMLImageElement;
+                  if (target && target.src !== img.fallback) {
+                    target.src = img.fallback;
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
 

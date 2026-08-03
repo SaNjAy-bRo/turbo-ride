@@ -19,9 +19,9 @@ export const EXPERIENCES_DATA: Experience[] = [
     description: "Take the wheel for a thrilling highway drive session. Complete open-road freedom on Bengaluru's finest expressway stretches with real-time pilot guidance.",
     highlights: [
       "Per-Session Experience Package",
-      "Professional Safety Pilot & Route Briefing",
-      "Full Commercial Insurance & Fuel Included",
-      "Launch Control & Mode Switch Demonstration"
+      "Professional Safety Pilot & Pre-Drive Briefing",
+      "All-Inclusive: Fuel & Comprehensive Insurance Included",
+      "Live Launch Control & Sports Drive Mode Demonstration"
     ],
     image: "/images/porsche-yellow.png",
     iconName: "Flame",

@@ -56,8 +56,8 @@ export const FLEET_DATA: Car[] = [
     gallery: [
       "/images/porsche-yellow.png",
       "/images/cockpit/porsche-cockpit.png",
-      "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1600&q=85",
-      "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1600&q=85"
+      "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1600&q=85",
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=85"
     ],
     audioUrl: "/audio/porsche-rev.wav",
     audioFrequency: 180,
@@ -138,7 +138,7 @@ export const FLEET_DATA: Car[] = [
     gallery: [
       "/images/mustang-gt-exterior.png",
       "/images/cockpit/mustang-cockpit.png",
-      "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1600&q=85"
+      "https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=1600&q=85"
     ],
     audioUrl: "/audio/mustang-rev.mp3",
     audioFrequency: 150,
